@@ -71,17 +71,14 @@ var kmDistance = +prompt('Введите расстояние в километ�
 var ftDistanceKonvert = ftDistance*0.305/1000;
 
 if(kmDistance > ftDistanceKonvert) {
-    alert(kmDistance + ' километров больше, чем ' + ftDistance + ' футов');
+    alert(kmDistance + ' километров больше, чем ' + ftDistance + ' футов')
 }
-
-if(kmDistance < ftDistanceKonvert) {
+else if(kmDistance < ftDistanceKonvert) {
     alert(kmDistance + ' километров меньше, чем ' + ftDistance + ' футов');
 } 
-
-if(kmDistance === ftDistanceKonvert) {
+else if(kmDistance === ftDistanceKonvert) {
     alert(kmDistance + ' километров равно ' + ftDistance + ' футов');
 } 
-
 else {
     alert('Пожалуйста, сделайте корректный ввод (введите число)')
 }
