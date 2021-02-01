@@ -17,13 +17,13 @@ if (userAge < 18) {
             alert('Маме расскажу');
             console.log('userAge->>', userAge);
             break;
-        default:
+     /*   default:
             alert('Сделайте правильный ввод');
-            break;
+            break;*/
     }
 }
 
-if (userAge >= 18) {
+else if (userAge >= 18) {
     switch (userSmokeStatus) {
         case 'Нет':
         case 'нет':
@@ -35,9 +35,9 @@ if (userAge >= 18) {
             alert('Ну и зря');
             console.log('userAge->>', userAge);
             break;
-        default:             
+       /* default:             
             alert('Сделайте правильный ввод');
-            break;            
+            break;            */
     }
 } else {
     alert('Сделайте правильный ввод');
