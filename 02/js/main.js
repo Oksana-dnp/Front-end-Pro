@@ -63,6 +63,32 @@ if(xNumber === yNumber){
     alert('Сделайте правильный ввод');
 }
 
+//Hometask past 2.3
+
+var kmDistance = +prompt('Введите расстояние в километрах'),
+    ftDistance = +prompt('Введите расстояние в футах');
+
+var ftDistanceKonvert = ftDistance*0.305/1000;
+
+if(kmDistance > ftDistanceKonvert) {
+    alert(kmDistance + ' километров больше, чем ' + ftDistance + ' футов');
+}
+
+if(kmDistance < ftDistanceKonvert) {
+    alert(kmDistance + ' километров меньше, чем ' + ftDistance + ' футов');
+} 
+
+if(kmDistance === ftDistanceKonvert) {
+    alert(kmDistance + ' километров равно ' + ftDistance + ' футов');
+} 
+
+else {
+    alert('Пожалуйста, сделайте корректный ввод (введите число)')
+}
+
+
+
+
 
 
 
