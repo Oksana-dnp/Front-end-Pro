@@ -1,4 +1,4 @@
-var userAge = +prompt('Сколько лет?');
+var userAge = prompt('Сколько лет?');
 
 var userSmokeStatus = prompt('Куришь?');
 
