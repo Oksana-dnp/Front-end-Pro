@@ -1,3 +1,5 @@
+//Hometask part 2.1
+
 var userAge = +prompt('Сколько лет?');
 
 var userSmokeStatus = prompt('Куришь?');
@@ -40,5 +42,27 @@ if (userAge >= 18) {
 } else {
     alert('Сделайте правильный ввод');
 }
+
+//Hometask part 2.2
+
+var xNumber = +prompt('Введите произвольное число');
+
+var yNumber = +prompt('Введите произвольное число');
+
+if(xNumber > yNumber) {
+    alert('Число ' + xNumber + ' больше ' + yNumber);
+}
+
+if(xNumber < yNumber){
+    alert('Число ' + xNumber + ' меньше ' + yNumber);
+}
+
+if(xNumber === yNumber){
+    alert('Число ' + xNumber + ' равно ' + yNumber);
+} else {
+    alert('Сделайте правильный ввод');
+}
+
+
 
 
