@@ -21,7 +21,7 @@ if (userAge < 18) {
     }
 }
 
-if (userAge > 18) {
+if (userAge >= 18) {
     switch (userSmokeStatus) {
         case 'Нет':
         case 'нет':
