@@ -26,7 +26,7 @@ if (userAge < 18) {
 if (userAge >= 18) {
     switch (userSmokeStatus) {
         case 'Нет':
-        case 'нет':
+        case 'нет ':
             alert('Молодец, и не надо');
             console.log('useAge->>', userAge);
             break;
