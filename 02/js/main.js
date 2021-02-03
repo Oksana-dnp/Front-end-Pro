@@ -4,24 +4,29 @@ var userAge = +prompt('Сколько лет?');
 
 var userSmokeStatus = prompt('Куришь?');
 
-if (userAge < 18) {
+/*все равно сложно? и вопрос, если будет неверный ввод, мне тогда лучеш сделать еще и 
+ else if()   {
+            alert('Ну и зря')
+        }
 
-    switch (userSmokeStatus) {
-        case 'Нет':
-        case 'нет':
-            alert('Так держать!');
-            console.log('userAge->>', userAge);
-            break;
-        case 'Да':
-        case 'да':
-            alert('Маме расскажу');
-            console.log('userAge->>', userAge);
-            break;
-            default:
-            alert('Сделайте правильный ввод');
-            break;
-    }
+*/
+
+if(userSmokeStatus ) {
+        if(userAge < 18 ) {
+            alert('Маме раскажу')
+        }
+        else  {
+            alert('Ну и зря')
+        }
+    }else {
+        if(userAge >= 18 ) {
+            alert('Так держать!')
+        } else {
+            alert('Молодец, и не надо')
+        }
 }
+
+
 
 else if (userAge >= 18) {
     switch (userSmokeStatus) {
@@ -53,11 +58,11 @@ if(xNumber > yNumber) {
     alert('Число ' + xNumber + ' больше ' + yNumber);
 }
 
-if(xNumber < yNumber){
+else if(xNumber < yNumber){
     alert('Число ' + xNumber + ' меньше ' + yNumber);
 }
 
-if(xNumber === yNumber){
+else if(xNumber === yNumber){
     alert('Число ' + xNumber + ' равно ' + yNumber);
 } else {
     alert('Сделайте правильный ввод');
