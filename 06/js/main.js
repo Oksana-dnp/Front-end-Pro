@@ -87,7 +87,7 @@ console.log(evenArr);
 
 for (i = 0; i < difArr.length; i++) {
     if (difArr[i] % 2 == 0) {
-        var evenArr = difArr.splice(i);
+        var evenArr = [difArr[i] + ', '];
     }
     document.write(evenArr + '<br>');
 }
