@@ -19,11 +19,7 @@ var difArr = [3, 4, 1, 2, 7];
 var evenArr = [];
 for (i = 0; i < difArr.length; i++) {
     if (difArr[i] % 2 == 0) {
-<<<<<<< HEAD
         evenArr.push(difArr[i]);
-=======
-        var evenArr = [difArr[i] + ', '];
->>>>>>> d7cd5d43ce2fa24cc31f987c0f8695525ccf5c73
     }
 }
 document.write(evenArr + '<br/>');
