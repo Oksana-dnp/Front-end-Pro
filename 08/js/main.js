@@ -15,5 +15,5 @@ console.log(textDef);
 console.log(...textArray);
 
 //Вывести в консоль рандомное число от 0 до 50
-var numberX = Math.ceil(Math.random() * 50);
+var numberX = Math.round(Math.random() * 50);
 alert(numberX);
