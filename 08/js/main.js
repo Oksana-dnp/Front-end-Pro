@@ -2,7 +2,7 @@
 var text = 'aaa bbb ccc';
 console.log(text.substr(4, 3));
 console.log(text.substring(4,7));
-console.log(text.slice(8));
+console.log(text.slice(4,7));
 
 //Преобразуйте первую букву строки в верхний регистр.
 var text1 = 'я учу javascript!';
