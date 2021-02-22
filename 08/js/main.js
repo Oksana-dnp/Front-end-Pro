@@ -17,6 +17,17 @@ while(textDef.includes('_')){
        textDef = textDef.replace('_','');
  }
  console.log(textDef);
+var textDef = 'var_test_text';
+ 
+while (textDef.includes('_')) {
+       var i = textDef.indexOf('_');
+
+       var y = textDef.charAt(i).toUpperCase();       
+       textDef.replace(textDef.charAt(i), y);
+       textDef.replace('_', '');                 
+       
+      
+}
  
 
 //Вывести в консоль рандомное число от 0 до 50
