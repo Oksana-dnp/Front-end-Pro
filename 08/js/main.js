@@ -1,4 +1,5 @@
 //Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' тремя разными способами (через substr, substring, slice)
+//По невнимательности, решила выводить  именно ccc :(
 var text = 'aaa bbb ccc';
 console.log(text.substr(4, 3));
 console.log(text.substring(4,7));
@@ -6,7 +7,7 @@ console.log(text.slice(4,7));
 
 //Преобразуйте первую букву строки в верхний регистр.
 var text1 = 'я учу javascript!';
-console.log(text1.replace('я', 'Я'));
+console.log(text1.charAt(0).toUpperCase());
 
 //Преобразуйте строку 'var_test_text' в 'varTestText'. Скрипт, конечно же, должен работать с любыми аналогичными строками.
 var textDef = 'var_test_text';
