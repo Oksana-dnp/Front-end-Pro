@@ -20,14 +20,47 @@ while(textDef.includes('_')){
 var textDef = 'var_test_text';
  
 while (textDef.includes('_')) {
-       var i = textDef.indexOf('_');
+       var newString = textDef;
+       var i = newString.indexOf('_');
 
-       var y = textDef.charAt(i).toUpperCase();       
-       textDef.replace(textDef.charAt(i), y);
-       textDef.replace('_', '');                 
+       var y = newString.charAt(++i).toUpperCase(); 
+       console.log(y);
+       newString.replace(newString.charAt(i), y);
+       newString.replace('_', ''); 
+       console.log(newString);
+       break;
+       
+       
+       
+       while(textDef.includes('_')){
+       textDef = textDef.replace('_','');
+ }
+       
+       
+       var textDef = 'var_test_text';
+       var i  = textDef.indexOf('_');
+        textDef.replace(textDef[i],'');
+       var b = textDef.charAt(++i).toUpperCase();
+       console.log(b);
+      
+       console.log(textDef);
+       
+       var NewString = textDef.slice(0,i) + textDef.slice(i++);
+       console.log(NewString);
+      
        
       
 }
+       
+       var i = 
+
+
+var textDef = 'var_test_text';
+
+       var i = textDef.indexOf('_');
+
+       var y = textDef.charAt(++i).toUpperCase();       
+       textDef.replace(textDef.charAt(i), y);
  
 
 //Вывести в консоль рандомное число от 0 до 50
