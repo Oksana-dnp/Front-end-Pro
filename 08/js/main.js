@@ -11,9 +11,11 @@ console.log(text1.charAt(0).toUpperCase());
 
 //Преобразуйте строку 'var_test_text' в 'varTestText'. Скрипт, конечно же, должен работать с любыми аналогичными строками.
 var textDef = 'var_test_text';
-var textArray = (textDef.split('_'));
-console.log(textDef);
-console.log(...textArray);
+while(textDef.includes('_')){
+       textDef = textDef.replace('_','');
+ }
+ console.log(textDef);
+ 
 
 //Вывести в консоль рандомное число от 0 до 50
 var numberX = Math.round(Math.random() * 50);
