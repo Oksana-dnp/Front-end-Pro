@@ -7,7 +7,9 @@ console.log(text.slice(4,7));
 
 //Преобразуйте первую букву строки в верхний регистр.
 var text1 = 'я учу javascript!';
-console.log(text1.charAt(0).toUpperCase());
+var newText =text1.charAt(0).toUpperCase() + text1.slice(1);
+console.log(newText);
+
 
 //Преобразуйте строку 'var_test_text' в 'varTestText'. Скрипт, конечно же, должен работать с любыми аналогичными строками.
 var textDef = 'var_test_text';
