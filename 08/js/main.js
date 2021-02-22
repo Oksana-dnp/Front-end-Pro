@@ -1,7 +1,7 @@
 //Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' тремя разными способами (через substr, substring, slice)
 var text = 'aaa bbb ccc';
-console.log(text.substr(8, 3));
-console.log(text.substring(8));
+console.log(text.substr(4, 3));
+console.log(text.substring(4,7));
 console.log(text.slice(8));
 
 //Преобразуйте первую букву строки в верхний регистр.
