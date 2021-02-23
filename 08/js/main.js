@@ -12,56 +12,21 @@ console.log(newText);
 
 
 //Преобразуйте строку 'var_test_text' в 'varTestText'. Скрипт, конечно же, должен работать с любыми аналогичными строками.
+//с большой буквой почему-то не сложилось 
 var textDef = 'var_test_text';
-while(textDef.includes('_')){
-       textDef = textDef.replace('_','');
- }
- console.log(textDef);
-var textDef = 'var_test_text';
- 
-while (textDef.includes('_')) {
-       var newString = textDef;
-       var i = newString.indexOf('_');
-
-       var y = newString.charAt(++i).toUpperCase(); 
-       console.log(y);
-       newString.replace(newString.charAt(i), y);
-       newString.replace('_', ''); 
-       console.log(newString);
-       break;
-       
-       
-       
-       while(textDef.includes('_')){
-       textDef = textDef.replace('_','');
- }
-       
-       
-       var textDef = 'var_test_text';
-       var i  = textDef.indexOf('_');
-        textDef.replace(textDef[i],'');
-       var b = textDef.charAt(++i).toUpperCase();
-       console.log(b);
-      
-       console.log(textDef);
-       
-       var NewString = textDef.slice(0,i) + textDef.slice(i++);
-       console.log(NewString);
-      
-       
-      
+function textTransform(strName,x) {
+    while(strName.includes(x)){
+        console.log(x);
+        var y = strName.indexOf(x);
+       var b = strName.charAt(++y).toUpperCase();
+        console.log(b);
+        var c = strName.replace(strName.indexOf(y),b);
+        console.log(c);
+        strName = strName.replace(x,'');
+             console.log(strName);
+   }
 }
-       
-       var i = 
-
-
-var textDef = 'var_test_text';
-
-       var i = textDef.indexOf('_');
-
-       var y = textDef.charAt(++i).toUpperCase();       
-       textDef.replace(textDef.charAt(i), y);
- 
+textTransform(textDef,'_');
 
 //Вывести в консоль рандомное число от 0 до 50
 var numberX = Math.round(Math.random() * 50);
