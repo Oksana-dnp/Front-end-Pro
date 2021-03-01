@@ -20,17 +20,17 @@ while (true) {
     break;
 }
 
-var maxValue;
+var maxValueSecret;
 
 lengthSecret.reduce(function (result, num) {
-    maxValue = result + num;
-    return maxValue;
+    maxValueSecret = result + num;
+    return maxValueSecret;
 })
 
-console.log(maxValue);
+console.log('maxValueSecret', maxValueSecret);
 
 var i = 0;
-while (i < maxValue) {
+while (i < maxValueSecret) {
     for (key in secret) {
         if (secret[key].includes(i)) {
             document.write(key);
