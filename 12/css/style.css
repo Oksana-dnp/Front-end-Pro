@@ -27,3 +27,7 @@ body{
     font-size: 27px;
     color: #655c5c;
 }
+.user_subtext {
+    display: block;
+    margin-top: 20px;
+}
