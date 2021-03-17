@@ -237,7 +237,6 @@ usersInfo.sort(function (a, b) {
 });
 
 for (var index = 0; index < usersInfo.length; index++) {
-    console.log('index-->', index);
     document.write(`name: ${usersInfo[index].name} <br> 
     username: ${usersInfo[index].username} <br>
     email: ${usersInfo[index].email} <br>
