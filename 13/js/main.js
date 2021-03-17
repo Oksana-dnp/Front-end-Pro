@@ -232,7 +232,6 @@ var usersInfo = [
 ]
 
 usersInfo.sort(function (a, b) {
-    console.log(`${a.email} ${b.email}`)
     if (a.email > b.email) return 1;
     if (a.email < b.email) return -1;
 });
