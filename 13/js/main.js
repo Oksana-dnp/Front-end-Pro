@@ -249,16 +249,3 @@ for (var index = 0; index < usersInfo.length; index++) {
     website: ${usersInfo[index].website} <br>
     company name: ${usersInfo[index].company.name} <br><br>`);
 }
-
-/*
-"name": "Leanne Graham",
-    "username": "Bret",
-        "email": "Sincere@april.biz",
-            "address": {
-    "street": "Kulas Light",
-        "suite": "Apt. 556",
-            "city": "Gwenborough",
-                "phone": "1-770-736-8031 x56442",
-                    "website": "hildegard.org",
-                        "company": {
-        "name": "Romaguera-Crona",*/
