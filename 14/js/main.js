@@ -7,7 +7,7 @@ for (var i = 0; i < animalItem.length; i++) {
     animalItem[i].insertBefore(elem, firstElem[i]);
 }
 
-//я посмотрела ролик на ютуб про делегирование и смогла сделать так, тут мне понятен принцип
+//ролик на ютуб про делегирование мне помог
 function closeMessage(e) {
     if (e.target.tagName == 'IMG') (
         e.target.parentNode.setAttribute('class', 'pane delete')
