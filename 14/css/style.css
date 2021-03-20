@@ -16,3 +16,13 @@ p {
     padding: 10px 20px 10px;
     border-top: solid 2px #c4df9b;
 }
+
+
+img {
+    cursor: pointer;
+}
+
+.delete {
+    display: none;
+    transition-duration: 1s;
+}

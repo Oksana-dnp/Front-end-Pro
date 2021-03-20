@@ -6,3 +6,23 @@ for (var i = 0; i < animalItem.length; i++) {
     var firstElem = document.querySelectorAll('h3');
     animalItem[i].insertBefore(elem, firstElem[i]);
 }
+
+//я посмотрела ролик на ютуб про делегирование и смогла сделать так, тут мне понятен принцип
+function closeMessage(e) {
+    if (e.target.tagName == 'IMG') (
+        e.target.parentNode.setAttribute('class', 'pane delete')
+    )
+}
+
+container.addEventListener('click', closeMessage)
+
+/* пыталась до того так, но тут не клеится :(  как мне не вызвыть каждый clickElem из Html коллекции по его индексу...
+    воможно тут что-то поправить?
+var clickElem = document.querySelectorAll('img');
+
+function closeMessage2(e) {
+    this.parentNode.setAttribute('class', 'pane delete')
+}
+clickElem[0].addEventListener('click', closeMessage2)
+
+*/
