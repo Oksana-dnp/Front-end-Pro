@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #blueRect {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="blueRect" style="top:0px; left:0px;"></div>
+    <script>
+
+        document.body.addEventListener('keydown', moveBlock)
+        var block = document.querySelector('#blueRect');
+        function moveBlock(event) {
+            var blockStyle = block.getAttribute('style');
+            var x = blockStyle.indexOf('left:') + 5;
+            var x1 = blockStyle.indexOf('px', x);
+            var y = blockStyle.indexOf('top:') + 4;
+            var y1 = blockStyle.indexOf('px', y)
+            var xValue = blockStyle.slice(x, x1);
+            var yValue = blockStyle.slice(y, y1)
+            switch (event.key) {
+                case 'ArrowRight':
+                    block.setAttribute('style', `${blockStyle.slice(0, x)}${+xValue + 10}${blockStyle.slice(x1)}`)
+                    break;
+                case 'ArrowLeft':
+                    if (xValue > 0) block.setAttribute('style', `${blockStyle.slice(0, x)}${+xValue - 10}${blockStyle.slice(x1)}`)
+                    break;
+                case 'ArrowUp':
+                    if (yValue > 0) block.setAttribute('style', `${blockStyle.slice(0, y)}${+yValue - 10}${blockStyle.slice(y1)}`)
+                    break;
+                case 'ArrowDown':
+                    block.setAttribute('style', `${blockStyle.slice(0, y)}${+yValue + 10}${blockStyle.slice(y1)}`)
+                    break;
+            }
+            console.log('blockStyle-->', blockStyle)
+        }
+
+    </script>
+
+</body>
+
+</html>
