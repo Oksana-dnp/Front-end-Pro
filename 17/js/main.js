@@ -239,7 +239,6 @@ function myFunction(array) {
             'website': { enumerable: false },
             'address[geo]': { enumerable: false }
         })
-
         Object.defineProperty(array[index].address, 'geo', {
             enumerable: false
         })
