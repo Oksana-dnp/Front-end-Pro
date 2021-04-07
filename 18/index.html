@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+        .modal {
+            width: 60vw;
+            height: 300px;
+            position: absolute;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            box-shadow: 0px 0px 5px 3px #ccc;
+            padding: 15px;
+            left: calc(50vw - 30vw);
+            top: calc(50vh - 150px);
+        }
+
+        .sale_counter {
+            display: block;
+            padding-bottom: 20px;
+            font-size: 25px;
+            font-weight: 700;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal">
+        <h1>SALE!!!!</h1>
+        <h3>только до <span class="endSalesDay">15.04.2021</span>!!!!</h3>
+        <br>
+        <h3>Осталось времени</h3>
+        <span class="sale_counter">00:00:00</span>
+        <button class="sale-popup-bay">Купить</button>
+        <button class="sale-popup-close">Закрыть</button>
+    </div>
+    <script>
+        var modal = document.querySelector('.modal')
+        var salePopupBay = document.querySelector('.sale-popup-bay');
+        var salePopupClose = document.querySelector('.sale-popup-close');
+        salePopupBay.addEventListener('click', popupBay);
+        salePopupClose.addEventListener('click', popupClose);
+
+        function popupBay() {
+            localStorage.setItem('Sale', true)
+            localStorage.setItem('ShowSalePopup', JSON.stringify({ isShow: false, time: 0 }))
+            var info = JSON.parse(localStorage.getItem('ShowSalePopup'));
+            for (key in info) {
+                if (info[key] === false) document.querySelector('.modal').hidden = true;
+            }
+        }
+
+        function popupClose() {
+            localStorage.setItem('Sale', false)
+            localStorage.setItem('ShowSalePopup', JSON.stringify({ isShow: true, time: 15000 }))
+            var info = JSON.parse(localStorage.getItem('ShowSalePopup'));
+            for (key in info) {
+                if (info[key] === true) document.querySelector('.modal').hidden = true;
+                function isShow() {
+                    document.querySelector('.modal').hidden = false;
+                }
+                setTimeout(isShow, 10000)
+            }
+        }
+
+        var saleDate = new Date(2021, 3, 15, 0, 0, 0)
+
+        function getTimeSaleEnd() {
+            var curentDate = new Date()
+            var counter = saleDate - curentDate
+            var hoursCounter = Math.floor(counter / 1000 / 3600)
+            var minutesCounter = Math.floor((counter - hoursCounter * 1000 * 3600) / 1000 / 60)
+            var secondsCounter = Math.floor((counter - hoursCounter * 1000 * 3600 - minutesCounter * 1000 * 60) / 1000)
+            var saleTimeEnd = `${hoursCounter} часов ${minutesCounter} минут ${secondsCounter} секунд`
+            document.querySelector('.sale_counter').innerHTML = saleTimeEnd
+        }
+        setInterval(getTimeSaleEnd, 1000)
+
+
+
+
+    </script>
+
+</body>
+
+</html>
