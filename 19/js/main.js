@@ -12,9 +12,12 @@ function moveWindow(moveObj) {
         var randomX = Math.floor(Math.random() * innerWidth);
         var randomY = Math.floor(Math.random() * innerHeight);
         moveObj.moveTo(randomX, randomY)
+        console.log('x', randomX)
+        console.log('Y', randomY)
+        setTimeout(getScreen, 1000)
     }
     setTimeout(closeWindow, 15000, frontEnd)
-    setInterval(getScreen, 1000)
+    setTimeout(getScreen, 1000)
 
 }
 moveWindow(frontEnd)
