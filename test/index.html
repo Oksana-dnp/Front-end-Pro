@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .completed {
+            margin-left: 20px;
+            clear: both;
+            position: relative;
+        }
+
+        .completed:before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: #80808036;
+            display: block;
+            float: left;
+            position: absolute;
+            left: -15px;
+            top: 6px;
+            border: 1px solid blue;
+            border-radius: 2px;
+        }
+
+        .completed-false:before {
+            background: red;
+        }
+
+        .completed-true:before {
+            background: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="filters">
+        <label>
+            Поиск по задаче
+            <input class='search-input' type="text" placeholder="Введите название задачи" />
+        </label>
+        <label>
+            Сортировака по названию
+            <select>
+                <option>от А - Я</option>
+                <option>от Я - А</option>
+            </select>
+        </label>
+        <label>
+            Только выполненные
+            <input type="checkbox">
+        </label>
+    </div>
+    <div class="todo-list">
+        <div class="todo-item todoId">
+            <div class="completed">
+                <h3 class="todo-item-title" data-userId=""></h3>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var Data = [
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 2,
+                "title": "quis ut nam facilis et officia qui",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 3,
+                "title": "fugiat veniam minus",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 4,
+                "title": "et porro tempora",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 5,
+                "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 6,
+                "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 7,
+                "title": "illo expedita consequatur quia in",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 8,
+                "title": "quo adipisci enim quam ut ab",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 9,
+                "title": "molestiae perspiciatis ipsa",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 10,
+                "title": "illo est ratione doloremque quia maiores aut",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 11,
+                "title": "vero rerum temporibus dolor",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 12,
+                "title": "ipsa repellendus fugit nisi",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 13,
+                "title": "et doloremque nulla",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 14,
+                "title": "repellendus sunt dolores architecto voluptatum",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 15,
+                "title": "ab voluptatum amet voluptas",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 16,
+                "title": "accusamus eos facilis sint et aut voluptatem",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 17,
+                "title": "quo laboriosam deleniti aut qui",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 18,
+                "title": "dolorum est consequatur ea mollitia in culpa",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 19,
+                "title": "molestiae ipsa aut voluptatibus pariatur dolor nihil",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 20,
+                "title": "ullam nobis libero sapiente ad optio sint",
+                "completed": true
+            }
+        ]
+
+        const todoList = document.querySelector('.todo-list');
+
+        renderList(Data);
+
+        function renderList(list) {
+            list.forEach((item) => {
+                console.log(item);
+                let todoItem = ` <div class="todo-item ${item.id}">
+
+            <div class="completed completed-${item.completed}">
+                <h3 class="todo-item-title" data-userId="${item.userId}">${item.id} ${item.title}</h3>
+            </div>
+        </div>`
+                todoList.innerHTML += todoItem
+                //todoList.innerHTML
+            })
+        }
+
+        const isCompleted = document.querySelector('.isComplited');
+
+        isCompleted.addEventListener('click', (event) => {
+            console.log('CLICK--> ', isCompleted.checked);
+
+            let isCompletedArr = data.filter((item) => {
+                return isCompleted.checked == item.completed
+            });
+
+            renderList(isCompletedArr);
+
+        })
+        searchInput.addEventListener('input', (event) => {
+            console.log(event.target.value)
+        })
+        item.includes(searchText)
+
+    </script>
+
+</body>
+
+</html>
