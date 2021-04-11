@@ -13,12 +13,12 @@ function moveWindow(moveObj) {
         var randomY = Math.floor(Math.random() * innerHeight);
         moveObj.moveTo(randomX, randomY)
     }
-    setTimeout(closeWindow, 15000)
+    setTimeout(closeWindow, 15000, frontEnd)
     setInterval(getScreen, 1000)
 
 }
 moveWindow(frontEnd)
 
-function closeWindow() {
-    frontEnd.close()
+function closeWindow(closeWin) {
+    closeWin.close()
 }
