@@ -14,10 +14,12 @@ function moveWindow(moveObj) {
         moveObj.moveTo(randomX, randomY)
         console.log('x', randomX)
         console.log('Y', randomY)
-        setTimeout(getScreen, 1000)
+        var timeId = setTimeout(getScreen, 1000)
+        if (frontEnd.closed) clearTimeout(timeId)
     }
     setTimeout(closeWindow, 15000, frontEnd)
     setTimeout(getScreen, 1000)
+
 
 }
 moveWindow(frontEnd)
