@@ -220,7 +220,7 @@
         isCompleted.addEventListener('click', (event) => {
 
             let completed = isCompleted.checked
-            history.pushState({}, '', `&isCompleted=${isCompleted.checked}`)
+            history.pushState({}, '', `?isCompleted=${isCompleted.checked}`)
 
             filtersToParams(data, completed, 'checkbox');
             if (!searchInput.value == '') {
