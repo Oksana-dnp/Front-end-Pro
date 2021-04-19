@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English level test</title>
+</head>
+
+<body>
+    <form class="test__form" action="post">
+        <div class="test__form__question">
+
+        </div>
+
+
+
+
+    </form>
+    <script>
+
+        var testEnglish = [
+            {
+                "id": 1,
+                "testCase": "I ___ a teacher.",
+                "answerTrue": "am",
+                "answerFalse": {
+                    "first": "are",
+                    "second": "be",
+                    "third": "is"
+                }
+            },
+            {
+                "id": 2,
+                "testCase": "__________ two sons.",
+                "answerTrue": "She has got",
+                "answerFalse": {
+                    "first": "She have",
+                    "second": "She is",
+                    "third": "She get "
+                }
+            }
+        ]
+
+        const testQuestion = document.querySelector('.test__form__question')
+
+        renderTestCases(testEnglish);
+
+        function renderTestCases(list) {
+            list.forEach((item, index) => {
+
+                let questionItem = `<div class="title-question">
+                    <span>${item.id}. ${item.testCase}</span>
+                </div>
+                <div class="answer">
+                <label>
+                    <input type="radio" name="question${item.id}" data-name="question">
+                    ${item.answerTrue}                     
+                </label>
+                </div>
+                <div class="answer">
+                    <label>
+                      <input class="answer__input" type="radio" name="question${item.id}" data-name="question">
+                      ${item.answerFalse.first}
+                </label >
+                </div >
+                <div class="answer">
+                    <label>
+                        <input type="radio" name="question${item.id}" data-name="question">
+                        ${item.answerFalse.second}
+                    </label>
+                </div>
+                <div class="answer">
+                    <label>
+                        <input type="radio" name="question${item.id}" data-name="question">
+                        ${item.answerFalse.third}
+                </label>
+                </div>`
+
+                testQuestion.innerHTML += questionItem
+
+            })
+
+        }
+
+        let questionInputs = document.querySelectorAll('input[data-name="question"]')
+
+        console.log('questionInputs-->', questionInputs)
+        for (i = 0; i < questionInputs.length; i++) {
+            questionInputs[i].addEventListener('change', checkedStatus)
+        }
+
+
+
+        function checkedStatus() {
+            for (i = 0; i < questionInputs.length; i++) {
+                if (questionInputs[i].checked) {
+                    console.log('questionInputs-->', questionInputs[i].parentNode);
+                    console.log('questionInputs[i].parentNode', questionInputs[i].parentNode.textContent)
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

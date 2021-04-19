@@ -1,0 +1,86 @@
+var testEnglish = [
+    {
+    "id": 1,   
+    "testCase": "I ___ a teacher.",
+    "answer": {
+        "trueAnswer": "am",
+        "falseAnswer": "are",
+        "falseAnswer": "be",
+        "falseAnswer": "is"
+    },
+        {
+    "id": 2,   
+    "testCase": "__________ two sons.",
+    "answer": {
+        "falseAnswer": "She have",
+        "falseAnswer": "She is",
+        "falseAnswer": "She get",
+        "trueAnswer": "She has got"
+    }
+    },
+          {
+    "id": 3,   
+    "testCase": "He __________ like basketball.",
+    "answer": {
+        "trueAnswer": "doesn't",
+        "falseAnswer": "not",
+        "falseAnswer": "don't",
+        "falseAnswer": "do not"
+    },
+    "id": 4,   
+    "testCase": "I'm reading. What __________ doing?",
+    "answer": {
+        "falswAnswer": "you",
+        "trueAnswer": "are you",
+        "falseAnswer": "are",
+        "falseAnswer": "you are"
+    },
+    "id": 5,   
+    "testCase": "__________ he go for a walk every evening?",
+    "answer": {
+        "trueAnswer": "Does",
+        "falseAnswer": "Has",
+        "falseAnswer": "Is",
+        "falseAnswer": "Do"
+    },
+    "id": 6,   
+    "testCase": "__________ some apples in the plastic bag.",
+    "answer": {
+        "falseAnswer": "It is",
+        "falseAnswer": "There is",
+        "trueAnswer": "There are",
+        "falseAnswer": "There isn't"
+    },
+    "id": 7,   
+    "testCase": "There isn't __________ fruit in the shop",
+    "answer": {
+        "falseAnswer": "some",
+        "trueAnswer": "any",
+        "falseAnswer": "the"
+    },
+    "id": 8,   
+    "testCase": "__________ you play chess?",
+    "answer": {
+        "falseAnswer": "Are",
+        "trueAnswer": "Can",
+        "falseAnswer": "Know",
+        "falseAnswer": "Have"
+    },
+    "id": 9,   
+    "testCase": "What are you doing now? I __________ a letter.",
+    "answer": {
+        "falseAnswer": "is writing",
+        "falseAnswer": "write",
+        "falseAnswer": "be writing",
+        "trueAnswer": "am writing"
+    },
+    "id": 10,   
+    "testCase": "Do you like __________ there?",
+    "answer": {
+        "falseAnswer": "to working",
+        "trueAnswer": "working",
+        "falseAnswer": "worked",
+        "falseAnswer": "work"
+    },
+
+]
