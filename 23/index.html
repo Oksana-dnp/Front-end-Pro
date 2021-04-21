@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розрахунок вартості проживання</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Відпочинок у готелі Три сини та донька</h1>
+        <form class="calcForm" action="#">
+            <p class="price_rest">Оберіть варіант проживання</p>
+            <label>
+                <input type="radio" value="one" name="numberPersons">
+                одна особа в номері
+            </label>
+            <label>
+                <input type="radio" value="two" name="numberPersons">
+                дві особи в номері
+            </label>
+            <br>
+            <select class="calcForm__select one_person_room">
+                <option class="calcForm__item" value="">Оберіть категорію номеру для однієї особи</option>
+            </select>
+            <select class="calcForm__select two_person_room">
+                <option class="calcForm__item">Оберіть категорію номеру для двох осіб</option>
+            </select>
+            <br>
+            <br>
+            <label>
+                Тривалість відпочинку
+                <input id="rest__period" type="range" min="1" max="30">
+                <br>
+                <span name="rangeValue"></span>
+            </label>
+            <br>
+            <div class="services">
+                <label>
+                    Екскурсійна програма
+                    <input type="checkbox" value="1000" data-name="services">
+                </label>
+            </div>
+
+        </form>
+        <div class="price__info">
+            <p class="price_rest">Розрахунок вартості відпочинку</p>
+            <br>
+            <span>Вартість номеру за добу: </span><span id="room__price"></span>
+            <br>
+            <br>
+            <span>Кількість діб проживання:</span><span id="days"></span>
+            <br>
+            <br>
+            <span>Екскурсійна програма:</span><span id="servise"></span>
+            <br>
+            <br>
+            <input id="get_price" type="button" value="Розрахувати вартість відпочинку">
+            <br>
+            <br>
+            <span>Загальна вартість відпочинку:</span><span id="rest_price"></span>
+        </div>
+    </div>
+
+    <script>
+        var hotelData;
+
+        fetch('data.json')
+            .then((hotelData) => {
+                return hotelData.json();
+            })
+            .then((data) => {
+                renderList(data)
+            })
+
+        var calcForm = document.querySelector('form')
+        var restPeriod = document.getElementById('rest__period')
+        var rangeValue = document.querySelector('span[name="rangeValue"]')
+        console.log('rangeValue-->', rangeValue);
+
+        restPeriod.addEventListener('click', (e) => {
+            rangeValue.textContent = `${e.target.value} діб`
+        })
+
+        var selectRoomOne = document.querySelector('select[class="calcForm__select one_person_room"]');
+        var selectRoomTwo = document.querySelector('select[class="calcForm__select two_person_room"]');
+        var restDays = document.getElementById('days')
+
+        function renderList(list) {
+            var param,
+                room,
+                categoryRoomOne,
+                categoryRoomTwo;
+
+            for (param in list) {
+                for (room in list[param]) {
+                    switch (param) {
+                        case "roomsForPerson":
+                            categoryRoomOne = `<option value="${list[param][room]}">${room} ${list[param][room]} грн.</option>`;
+                            selectRoomOne.innerHTML += categoryRoomOne;
+                            break;
+                        case "roomsTwoPersons":
+                            categoryRoomTwo = `<option value="${list[param][room]}">${room} ${list[param][room]} грн.</option>`;
+                            selectRoomTwo.innerHTML += categoryRoomTwo;
+                            break;
+                    }
+
+                }
+            }
+        }
+
+        var chooseNumberPerson = document.querySelectorAll('input[name="numberPersons"]')
+        var roomPrice = document.getElementById('room__price');
+        var service = document.querySelector('input[data-name="services"]');
+        var servicePrice = document.getElementById('servise');
+        var btnGetPrice = document.getElementById('get_price');
+        var inputTotalPrice = document.getElementById('rest_price');
+
+
+
+        selectRoomOne.addEventListener('change', getRoomPrice);
+        selectRoomTwo.addEventListener('change', getRoomPrice);
+        restPeriod.addEventListener('click', getRestDays);
+        service.addEventListener('click', getServicePrice);
+        btnGetPrice.addEventListener('click', totalPrice);
+
+
+        for (index = 0; index < chooseNumberPerson.length; index++) {
+            chooseNumberPerson[index].addEventListener('click', (e) => {
+                if (e.target.checked) {
+                    switch (e.target.value) {
+                        case 'one':
+                            selectRoomTwo.setAttribute('disabled', 'disabled');
+                            selectRoomOne.removeAttribute('disabled');
+                            break;
+                        case 'two':
+                            selectRoomOne.setAttribute('disabled', 'disabled');
+                            selectRoomTwo.removeAttribute('disabled');
+                            break;
+                    }
+                }
+
+            })
+        }
+
+        function getRoomPrice(e) {
+            roomPrice.textContent = e.target.value;
+        }
+        function getRestDays(e) {
+            restDays.textContent = e.target.value;
+        }
+
+        function getServicePrice(e) {
+            if (e.target.checked) {
+                servicePrice.textContent = e.target.value;
+            } else {
+                servicePrice.textContent = '';
+            }
+        }
+
+        function totalPrice() {
+            var totalSum;
+            console.log('roomPrice.textContent', roomPrice.textContent)
+            if (roomPrice.textContent == '' || restDays.textContent == '') {
+                alert('Оберіть усі дані для розрахунку вартості')
+            } else {
+                totalSum = (+roomPrice.textContent) * (+restDays.textContent) + (+servicePrice.textContent);
+                console.log('totalsum', totalSum);
+                (restDays.textContent >= 10) ? totalSum = totalSum * 0.8 : totalSum;
+                console.log('totalsum-diskont-->', totalSum);
+                inputTotalPrice.textContent = `${totalSum} грн.`;
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
