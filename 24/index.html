@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Вывести первые 10 человек, ВЫВЕСТИ полько login, avatar_url, id
+        fetch('https://api.github.com/users', ['limit=10'])
+            .then((data) => {
+                return data.json()
+            })
+            .then((usersInfo) => {
+                getUsersInfo(usersInfo)
+            })
+
+        function getUsersInfo(array) {
+            for (index = 0; index <= 10; index++) {
+                document.write(`id: ${array[index].id}<br>`);
+                document.write(`login: ${array[index].login}<br>`)
+                document.write(`avatar_url: ${array[index].avatar_url}<br>`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
