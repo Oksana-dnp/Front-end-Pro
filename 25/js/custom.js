@@ -12,9 +12,9 @@ for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', changePage)
 }
 function changePage(e) {
-    var index = e.target.dataset.page;
-    var currentSection = document.querySelector('section[class*="active_block"]');
-    var newSection = document.querySelector(`section[class*="block_${index}"]`);
+    let index = e.target.dataset.page;
+    let currentSection = document.querySelector('section[class*="active_block"]');
+    let newSection = document.querySelector(`section[class*="block_${index}"]`);
     currentSection.classList.remove("active_block");
     newSection.classList.add("active_block");
 }
