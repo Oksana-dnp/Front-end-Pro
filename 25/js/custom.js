@@ -1,12 +1,12 @@
-var buttons = document.getElementsByTagName('button');
-var inputRange = document.querySelectorAll('input[type="range"]');
-var inputUserParam = document.querySelectorAll('input[type="text"]');
-var userHeight = document.querySelector('input[class="input_height"]');
-var heightTitle = document.querySelector('span[class="height_title"]');
-var rangeImg = document.querySelectorAll('input[max="4"]');
-var rangeValue = document.querySelectorAll('img[class="range_value"]');
-var validSection = document.querySelector('.block_1')
-console.log('rangeImg-->', rangeImg)
+const buttons = document.getElementsByTagName('button');
+const inputRange = document.querySelectorAll('input[type="range"]');
+const inputUserParam = document.querySelectorAll('input[type="text"]');
+const userHeight = document.querySelector('input[class="input_height"]');
+const heightTitle = document.querySelector('span[class="height_title"]');
+const rangeImg = document.querySelectorAll('input[max="4"]');
+const rangeValue = document.querySelectorAll('img[class="range_value"]');
+const validSection = document.querySelector('.block_1')
+
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', changePage)
@@ -43,7 +43,7 @@ function validForm(e) {
 userHeight.addEventListener('change', (e) => {
     heightTitle.textContent = `${e.target.value} см`;
     //я с начала пыталась добавлять значение в label,но у меня либо значения добавлялись,либо полностью менялось содержимое label на значение(input удалялся)
-    //все интересует есть ли вариант, тчоб значение добавлялось непосредственно в label?
+    //все же интересует есть ли вариант, чтобы значение добавлялось непосредственно в label?
 })
 
 for (let i = 0; i < rangeImg.length; i++) {
