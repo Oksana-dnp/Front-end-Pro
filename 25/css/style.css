@@ -1,0 +1,30 @@
+body {
+    background: #fff;
+}
+
+section {
+    display: none;
+}
+
+.active_block {
+    display: block;
+    background: rgb(250, 249, 249);
+    margin-top: 15%;
+    margin: 0 auto;
+    max-width: 60%;
+    padding: 20px 40px;
+    border: 1px solid #ccc;
+    border-radius:15px;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.valid {
+    border: 2px solid rgb(4, 214, 85);
+}
+
+.range_value {
+    height: 300px;
+}

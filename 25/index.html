@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <h2>Расчёт калорий</h2>
+
+    <section class="active_block block_1">
+        <h3>Выберите ваш пол:</h3>
+        <label><input type="radio" name="gender">Male</label>
+        <label><input type="radio" name="gender">Female</label>
+
+
+        <hr>
+        <h3>Введите ваш рост:</h3>
+        <label><input class="input_height" type="range" min="100" max="250"><span class="height_title"></span></label>
+
+        <hr>
+        <h3>Введите ваш текущий вес:</h3>
+        <label><input type="text"></label>
+
+        <hr>
+        <h3>Введите ваш желаемый вес:</h3>
+        <label><input type="text"></label>
+
+        <div>
+            <button data-page='2'>Next</button>
+        </div>
+    </section>
+
+    <section class="block_2">
+        <h3>Выберите вашу активность:</h3>
+        <input type="range" min="1" max="4">
+        <div>
+            <img class="range_value" src="" alt="">
+        </div>
+
+        <div>
+            <button data-page='1'>Prev</button>
+            <button data-page='3'>Next</button>
+        </div>
+
+    </section>
+
+    <section class="block_3">
+        <h3>Выберите желаемый результат:</h3>
+        <label><input type="range" min="1" max="4"></label>
+        <div>
+            <img class="range_value" src="" alt="">
+        </div>
+
+        <div>
+            <button data-page='2'>Prev</button>
+            <button data-page='4'>Next</button>
+        </div>
+
+    </section>
+
+    <section class="block_4 results">
+        <h3>Вам необхожимо принимать не больше <span></span> кКал в день.</h3>
+
+        <div>
+            <button data-page='3'>Prev</button>
+        </div>
+    </section>
+
+
+    <script src="./js/custom.js"></script>
+</body>
+
+</html>
