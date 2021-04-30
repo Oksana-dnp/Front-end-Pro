@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English level test</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <form class="test__form" action="post">
+        <section class="block_1 form__block">
+            <h3>Step 1</h3>
+            <div class="test__form__question">
+
+            </div>
+            <button>Next</button>
+        </section>
+
+
+    </form>
+    <script>
+        /*  var dataUrl = 'data_.json';
+          fetch(dataUrl)
+              .then((resolve) => {
+                  return resolve.json()
+              })
+              .then((dataTest) => {
+                  console.log('dataTest-->', dataTest)
+              })
+  */
+        var dataUrl = 'data.json';
+        const testQuestion = document.querySelector('.test__form__question');
+
+        //  console.log('questionText', questionText)
+
+
+
+
+        /*   function sendRequest(url) {
+               fetch(url)
+                   .then((response) => {
+                       return response.json()
+                   })
+                   .then((data) => {
+                       console.log('data-->', data)
+                     sendRequest(data)
+                   })
+             
+           }*/
+
+        async function getData(url) {
+            let fetchData = fetch(url)
+                .then((response) => {
+                    return response.json();
+                })
+            let result = await fetchData
+            renderTestCases(result);
+
+        }
+
+        getData(dataUrl)
+
+        async function renderTestCases(list) {
+
+            list.forEach((item) => {
+                let container = document.createElement('div')
+                let question = `<div class="title" data-title="${item.question}">
+                    <span class="title-question">${item.id}. ${item.question}</span>
+                                </div>`
+                container.innerHTML = question;
+                testQuestion.appendChild(container);
+
+
+                for (index in item.answers) {
+                    let questionItem = `<div class="answer" >
+                        <label>
+                            <input type="radio" name="question_${item.id}" data-answer="${item.answers[index].correct}">
+                                ${item.answers[index].answer}                         
+                          </label>
+                          </div>`
+                    console.log(' container', container)
+                    container.innerHTML += questionItem;
+                    // testQuestion.innerHTML += questionItem
+
+                }
+                let inputValue = document.querySelectorAll('input[name^="question_"]');
+                console.log('inputValue', inputValue)
+
+                for (let value of inputValue) {
+                    //console.log('list-->', list)
+                    value.addEventListener('click', pasteAnswer);
+                }
+            })
+
+        }
+
+
+        //при выборе ответа пользователя вставляет значение в прдложение
+        //мне не очень нравиться, что у меня при изменении ответа предложения строка "дергается", и никак
+        function pasteAnswer(e) {
+            //получаю ответ пользователя
+            let userAnswer = e.target.parentNode.innerText;
+            //это костыльно parentNode.parentNode.parentNode?
+            //через общего родителя получаю фразу, куда необходимо вставить ответ пользователя
+            //возможно костыльно использовать три раза parentNode?
+            let parrent = e.target.parentNode.parentNode.parentNode;
+            let titleReplace = parrent.firstChild;
+            //записала в дата атрибут сам вопрос
+            let changeText = titleReplace.dataset.title
+            let newText = changeText.replace('______', e.target.parentNode.innerText);
+            let span = document.createElement('span')
+            span.innerText = newText;
+            console.log('span', span)
+            //заменяю текст на новый, мне не нравиться, что я не смогла обернуть ответ пользоватя в span, чтоб в дальнейшем его стилизировать
+            //titleReplace.innerText = newText;
+            titleReplace.innerText = '';
+            titleReplace.appendChild(span)
+        }
+
+
+    </script>
+</body>
+
+</html>
