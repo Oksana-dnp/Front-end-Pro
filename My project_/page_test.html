@@ -22,43 +22,20 @@
 
     </form>
     <script>
-        /*  var dataUrl = 'data_.json';
-          fetch(dataUrl)
-              .then((resolve) => {
-                  return resolve.json()
-              })
-              .then((dataTest) => {
-                  console.log('dataTest-->', dataTest)
-              })
-  */
         var dataUrl = 'data.json';
         const testQuestion = document.querySelector('.test__form__question');
 
-        //  console.log('questionText', questionText)
-
-
-
-
-        /*   function sendRequest(url) {
-               fetch(url)
-                   .then((response) => {
-                       return response.json()
-                   })
-                   .then((data) => {
-                       console.log('data-->', data)
-                     sendRequest(data)
-                   })
-             
-           }*/
 
         async function getData(url) {
             let fetchData = fetch(url)
                 .then((response) => {
                     return response.json();
                 })
+                .catch((error) => {
+                    console.log('error')
+                });
             let result = await fetchData
             renderTestCases(result);
-
         }
 
         getData(dataUrl)
@@ -98,8 +75,8 @@
         }
 
 
-        //при выборе ответа пользователя вставляет значение в прдложение
-        //мне не очень нравиться, что у меня при изменении ответа предложения строка "дергается", и никак
+        //при выборе ответа пользователя вставляет значение в прeдложение
+        //мне не очень нравиться, что у меня при изменении ответа предложения строка "дергается"
         function pasteAnswer(e) {
             //получаю ответ пользователя
             let userAnswer = e.target.parentNode.innerText;
@@ -113,7 +90,6 @@
             let newText = changeText.replace('______', e.target.parentNode.innerText);
             let span = document.createElement('span')
             span.innerText = newText;
-            console.log('span', span)
             //заменяю текст на новый, мне не нравиться, что я не смогла обернуть ответ пользоватя в span, чтоб в дальнейшем его стилизировать
             //titleReplace.innerText = newText;
             titleReplace.innerText = '';
