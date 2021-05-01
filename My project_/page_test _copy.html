@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English level test</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <form class="test__form" action="post">
+        <section class="block_1 form__block">
+            <h3>Step 1</h3>
+            <div class="test__form__question">
+
+            </div>
+            <button>Next</button>
+        </section>
+
+
+    </form>
+    <script>
+        var dataUrl = 'data.json';
+        const testQuestion = document.querySelector('.test__form__question');
+
+
+        async function getData(url) {
+            let fetchData = fetch(url)
+                .then((response) => {
+                    return response.json();
+                })
+                .catch((error) => {
+                    console.log('error')
+                });
+            let result = await fetchData
+            renderTestCases(result);
+        }
+
+        getData(dataUrl)
+
+        async function renderTestCases(list) {
+
+            list.forEach((item) => {
+
+                let span = document.createElement('span');
+                let newSomeText = item.question.replace('______', () => {
+                    return `<span class="userAns"></span>`
+                });
+                span.innerHTML = newSomeText;
+                console.log('span', span)
+
+
+
+                ///
+                let container = document.createElement('div')
+                let question = `<div class="title" data-title="${item.question}">
+                    <span class="title-question">${item.id}. ${newSomeText}</span>
+                                </div>`
+                container.innerHTML = question;
+                testQuestion.appendChild(container);
+
+
+                for (index in item.answers) {
+                    let questionItem = `<div class="answer" >
+                        <label>
+                            <input type="radio" name="question_${item.id}" data-answer="${item.answers[index].correct}">
+                                ${item.answers[index].answer}                         
+                          </label>
+                          </div>`
+                    console.log(' container', container)
+                    container.innerHTML += questionItem;
+                    // testQuestion.innerHTML += questionItem
+
+                }
+                let inputValue = document.querySelectorAll('input[name^="question_"]');
+                console.log('inputValue', inputValue)
+
+                for (let value of inputValue) {
+                    //console.log('list-->', list)
+                    value.addEventListener('click', pasteAnswer);
+                }
+            })
+
+        }
+
+
+        //при выборе ответа пользователя вставляет значение в прeдложение
+        //мне не очень нравиться, что у меня при изменении ответа предложения строка "дергается"
+        function pasteAnswer(e) {
+            //получаю ответ пользователя
+            let userAnswer = e.target.parentNode.innerText;
+            //через общего родителя получаю фразу, куда необходимо вставить ответ пользователя
+            //возможно костыльно использовать три раза parentNode?
+            let parrent = e.target.parentNode.parentNode.parentNode;
+            let titleReplace = parrent.querySelector('.userAns');
+            titleReplace.textContent = userAnswer;
+        }
+
+
+    </script>
+</body>
+
+</html>
