@@ -1,0 +1,438 @@
+[
+    {
+        "question": "I __________ to Ann's party last week",
+        "id": 11,
+        "answers": [
+            {
+                "answer": "gone",
+                "correct": true
+            },
+            {
+                "answer": "went",
+                "correct": false
+            },
+            {
+                "answer": "was",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Why __________ yesterday?",
+        "id": 12,
+        "answers": [
+            {
+                "answer": "were you late",
+                "correct": false
+            },
+            {
+                "answer": "you were late",
+                "correct": false
+            },
+            {
+                "answer": "you lated",
+                "correct": false
+            },
+            {
+                "answer": "you was late",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "question": "Mike __________ to visit his parents on Sunday",
+        "id": 13,
+        "answers": [
+            {
+                "answer": "can",
+                "correct": true
+            },
+            {
+                "answer": "will",
+                "correct": false
+            },
+            {
+                "answer": "is going",
+                "correct": false
+            },
+            {
+                "answer": "must",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Kate is good at maths but Jack is __________.",
+        "id": 14,
+        "answers": [
+            {
+                "answer": "good",
+                "correct": false
+            },
+            {
+                "answer": "badly",
+                "correct": true
+            },
+            {
+                "answer": "better",
+                "correct": false
+            },
+            {
+                "answer": "well",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Nick __________ this film.",
+        "id": 15,
+        "answers": [
+            {
+                "answer": "seen already",
+                "correct": true
+            },
+            {
+                "answer": "already seen",
+                "correct": false
+            },
+            {
+                "answer": "has already seen",
+                "correct": false
+            },
+            {
+                "answer": "has already seen",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I've been working for Mr. Z and Co __________ last summer.",
+        "id": 16,
+        "answers": [
+            {
+                "answer": "from",
+                "correct": false
+            },
+            {
+                "answer": "for",
+                "correct": false
+            },
+            {
+                "answer": "until",
+                "correct": true
+            },
+            {
+                "answer": "since",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I __________ on this project for two months",
+        "id": 17,
+        "answers": [
+            {
+                "answer": "am working",
+                "correct": false
+            },
+            {
+                "answer": "worked",
+                "correct": true
+            },
+            {
+                "answer": "have been working",
+                "correct": false
+            },
+            {
+                "answer": "was working",
+                "correct": "false"
+            }
+        ]
+    },
+    {
+        "question": "I __________ go to the Astoria restaurant but I don't any more.",
+        "id": 18,
+        "answers": [
+            {
+                "answer": "used to",
+                "correct": false
+            },
+            {
+                "answer": "did use",
+                "correct": true
+            },
+            {
+                "answer": "have been working",
+                "correct": false
+            },
+            {
+                "answer": "was working",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Mike doesn't like school and __________.",
+        "id": 19,
+        "answers": [
+            {
+                "answer": "neither I do",
+                "correct": false
+            },
+            {
+                "answer": "so do I",
+                "correct": false
+            },
+            {
+                "answer": "neither do I",
+                "correct": false
+            },
+            {
+                "answer": " so I do",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "question": "I went to the doctor's yesterday and I __________ for half an hour.",
+        "id": 20,
+        "answers": [
+            {
+                "answer": "must wait",
+                "correct": false
+            },
+            {
+                "answer": "had to wait",
+                "correct": true
+            },
+            {
+                "answer": "had wait",
+                "correct": false
+            },
+            {
+                "answer": "should wait",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I __________ a newspaper last night when my friend rang.",
+        "id": 21,
+        "answers": [
+            {
+                "answer": "have been reading",
+                "correct": false
+            },
+            {
+                "answer": "read",
+                "correct": true
+            },
+            {
+                "answer": "have read",
+                "correct": false
+            },
+            {
+                "answer": "was reading",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "There was a robbery at the bank and all the money __________.",
+        "id": 22,
+        "answers": [
+            {
+                "answer": "was stealing",
+                "correct": false
+            },
+            {
+                "answer": "stolen",
+                "correct": true
+            },
+            {
+                "answer": "was stolen",
+                "correct": false
+            },
+            {
+                "answer": "was being stolen",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I __________ to the USA on business.",
+        "id": 23,
+        "answers": [
+            {
+                "answer": "am being sent",
+                "correct": false
+            },
+            {
+                "answer": "am sent",
+                "correct": true
+            },
+            {
+                "answer": "am send",
+                "correct": false
+            },
+            {
+                "answer": "be send",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Unless __________ hard, he'll fail the exam.",
+        "id": 24,
+        "answers": [
+            {
+                "answer": "he'll work",
+                "correct": false
+            },
+            {
+                "answer": "he works",
+                "correct": true
+            },
+            {
+                "answer": " he worked",
+                "correct": false
+            },
+            {
+                "answer": "he'd work",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "If I were you, __________ skipping classes.",
+        "id": 25,
+        "answers": [
+            {
+                "answer": "I stopped",
+                "correct": false
+            },
+            {
+                "answer": "I'll stop",
+                "correct": true
+            },
+            {
+                "answer": "I stop",
+                "correct": false
+            },
+            {
+                "answer": "I'd stop",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "26.He liked the party, __________ ?",
+        "id": 26,
+        "answers": [
+            {
+                "answer": "isn't he",
+                "correct": false
+            },
+            {
+                "answer": "didn't he",
+                "correct": true
+            },
+            {
+                "answer": "hasn't he",
+                "correct": false
+            },
+            {
+                "answer": "doesn't he",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I tried hard __________ my visa done in time.",
+        "id": 27,
+        "answers": [
+            {
+                "answer": "to get",
+                "correct": false
+            },
+            {
+                "answer": "for getting",
+                "correct": true
+            },
+            {
+                "answer": "for",
+                "correct": false
+            },
+            {
+                "answer": "to getting",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "When I came to my friend's, Helen __________.",
+        "id": 28,
+        "answers": [
+            {
+                "answer": "had already left",
+                "correct": false
+            },
+            {
+                "answer": "already left",
+                "correct": true
+            },
+            {
+                "answer": "was already left",
+                "correct": false
+            },
+            {
+                "answer": "would already leave",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "After __________ his report he was back to work.",
+        "id": 29,
+        "answers": [
+            {
+                "answer": "write",
+                "correct": false
+            },
+            {
+                "answer": "to write",
+                "correct": true
+            },
+            {
+                "answer": "wrote",
+                "correct": false
+            },
+            {
+                "answer": "writting",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I __________ go away next week.",
+        "id": 30,
+        "answers": [
+            {
+                "answer": "would like",
+                "correct": false
+            },
+            {
+                "answer": "like",
+                "correct": true
+            },
+            {
+                "answer": "like to",
+                "correct": false
+            },
+            {
+                "answer": "would like to",
+                "correct": false
+            }
+        ]
+    }
+]
