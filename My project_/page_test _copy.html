@@ -11,42 +11,75 @@
 
 <body>
     <form class="test__form" action="post">
-        <section class="block_1 form__block">
+        <section class="block_1 form__block active">
             <h3>Step 1</h3>
-            <div class="test__form__question">
+            <div class="test__form__section_1 cases_wrapper">
             </div>
-            <button type="button" id="btn_block_1">Next</button>
+            <button type="button" id="btn_block_1" data-page='2'>Next</button>
         </section>
-        <section class="block_2 form__block">
+        <section class="block_2 form__block ">
             <h3>Step 2</h3>
-            <div class="test__form__section_2">
+            <div class="test__form__section_2 cases_wrapper">
             </div>
-            <button type="button" id="btn_block_2">Next</button>
+            <button type="button" id="btn_block_2" data-page='3'>Next</button>
         </section>
         <section class="block_3 form__block">
             <h3>Step 3</h3>
-            <div class="test__form__section_3">
+            <div class="test__form__section_3 cases_wrapper">
             </div>
-            <button type="button" id="btn_block_3">Next</button>
+            <button id="result" type="button" id="btn_block_3" data-page='4'>Next</button>
         </section>
 
 
     </form>
     <script>
 
-        const testQuestion = document.querySelector('.test__form__question');
+        const testQuestion = document.querySelector('.test__form__section_1');
         const testSecondSection = document.querySelector('.test__form__section_2');
         const testThirdSection = document.querySelector('.test__form__section_3')
         const nextBtn = document.querySelector('#btn_block_1');
         const nextBtn_2 = document.querySelector('#btn_block_2');
+        const results = document.querySelector('#result');
+
+        //собираю массив с ответами пользователя
+        //наверное мне нужен еще массив с правильными ответами
+        result.addEventListener('click', getResults)
+
+        function getResults(e) {
+            let usersAnswers = document.querySelectorAll('span[class="userAns"]');
+            let answersResult = [];
+            for (let item of usersAnswers) {
+                let usersAnswer = item.innerText;
+                answersResult.push(usersAnswer);
+                console.log('usersAnswer-->', answersResult);
+            }
+        }
+        //хочу получить массив с верными ответами
+        //но функционала пока нет
+        function getRightAnswers() {
+            let rightAnswers = [];
+
+        }
+
+
         getData('data.json')
         //добавление сектион с вопросами
-        //использовала bind? чтоб передать аргумент  'data_1.json' в функцию обработчик 
+        //использовала bind? чтоб передать аргумент  'data_1/2.json' в функцию обработчик 
         nextBtn.addEventListener('click', createSection.bind(this, 'data_1.json'));
-        nextBtn_2.addEventListener('click', createSection.bind(this, 'data_2.json'))
+        nextBtn.addEventListener('click', goNextPage);
+        nextBtn_2.addEventListener('click', createSection.bind(this, 'data_2.json'));
+        nextBtn_2.addEventListener('click', goNextPage);
 
         function createSection(url) {
             getData(url)
+        }
+
+        function goNextPage(e) {
+            let index = e.target.dataset.page;
+            let currentSection = document.querySelector('section[class*="active"]');
+            let newSection = document.querySelector(`section[class*="block_${index}"]`);
+            currentSection.classList.remove("active");
+            newSection.classList.add("active");
         }
 
 
@@ -80,13 +113,12 @@
                                 </div>`
                 container.innerHTML = question;
                 //я хочу, чтоб каждые 10 вопросов записывались в новый section
+                //switch case не лучше?
                 if (item.id <= 10) {
                     testQuestion.appendChild(container);
                 } else if (item.id <= 20) {
-                    console.log('2222->', item.id);
                     testSecondSection.appendChild(container);
                 } else if (item.id > 20) {
-                    console.log('333->', item.id);
                     testThirdSection.appendChild(container);
                 }
 
@@ -99,13 +131,13 @@
                           </div>`
                     container.innerHTML += questionItem;
                 }
-                //
-                let inputValue = document.querySelectorAll('input[name^="question_"]');
-                console.log('inputValue', inputValue);
-                //вешаем обработчик событий на инпут с ответом пользователя
-                getInputsEvent(inputValue);
             })
 
+            //я не смогла вынести этот кусок кода за пределы функции я так понимаю у меня возника проблема
+            // за пределами этой функции inputValue был null это вопрос с асинхронностью, я не смогла его решить
+            let inputValue = document.querySelectorAll('input[name^="question_"]');
+            //вешаем обработчик событий на инпут с ответом пользователя
+            getInputsEvent(inputValue);
         }
 
         function getInputsEvent(array) {
