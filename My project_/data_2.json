@@ -1,222 +1,6 @@
 [
     {
-        "question": "I __________ to Ann's party last week",
-        "id": 11,
-        "answers": [
-            {
-                "answer": "gone",
-                "correct": true
-            },
-            {
-                "answer": "went",
-                "correct": false
-            },
-            {
-                "answer": "was",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "Why __________ yesterday?",
-        "id": 12,
-        "answers": [
-            {
-                "answer": "were you late",
-                "correct": false
-            },
-            {
-                "answer": "you were late",
-                "correct": false
-            },
-            {
-                "answer": "you lated",
-                "correct": false
-            },
-            {
-                "answer": "you was late",
-                "correct": true
-            }
-        ]
-    },
-    {
-        "question": "Mike __________ to visit his parents on Sunday",
-        "id": 13,
-        "answers": [
-            {
-                "answer": "can",
-                "correct": true
-            },
-            {
-                "answer": "will",
-                "correct": false
-            },
-            {
-                "answer": "is going",
-                "correct": false
-            },
-            {
-                "answer": "must",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "Kate is good at maths but Jack is __________.",
-        "id": 14,
-        "answers": [
-            {
-                "answer": "good",
-                "correct": false
-            },
-            {
-                "answer": "badly",
-                "correct": true
-            },
-            {
-                "answer": "better",
-                "correct": false
-            },
-            {
-                "answer": "well",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "Nick __________ this film.",
-        "id": 15,
-        "answers": [
-            {
-                "answer": "seen already",
-                "correct": true
-            },
-            {
-                "answer": "already seen",
-                "correct": false
-            },
-            {
-                "answer": "has already seen",
-                "correct": false
-            },
-            {
-                "answer": "has already seen",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "I've been working for Mr. Z and Co __________ last summer.",
-        "id": 16,
-        "answers": [
-            {
-                "answer": "from",
-                "correct": false
-            },
-            {
-                "answer": "for",
-                "correct": false
-            },
-            {
-                "answer": "until",
-                "correct": true
-            },
-            {
-                "answer": "since",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "I __________ on this project for two months",
-        "id": 17,
-        "answers": [
-            {
-                "answer": "am working",
-                "correct": false
-            },
-            {
-                "answer": "worked",
-                "correct": true
-            },
-            {
-                "answer": "have been working",
-                "correct": false
-            },
-            {
-                "answer": "was working",
-                "correct": "false"
-            }
-        ]
-    },
-    {
-        "question": "I __________ go to the Astoria restaurant but I don't any more.",
-        "id": 18,
-        "answers": [
-            {
-                "answer": "used to",
-                "correct": false
-            },
-            {
-                "answer": "did use",
-                "correct": true
-            },
-            {
-                "answer": "have been working",
-                "correct": false
-            },
-            {
-                "answer": "was working",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "Mike doesn't like school and __________.",
-        "id": 19,
-        "answers": [
-            {
-                "answer": "neither I do",
-                "correct": false
-            },
-            {
-                "answer": "so do I",
-                "correct": false
-            },
-            {
-                "answer": "neither do I",
-                "correct": false
-            },
-            {
-                "answer": " so I do",
-                "correct": true
-            }
-        ]
-    },
-    {
-        "question": "I went to the doctor's yesterday and I __________ for half an hour.",
-        "id": 20,
-        "answers": [
-            {
-                "answer": "must wait",
-                "correct": false
-            },
-            {
-                "answer": "had to wait",
-                "correct": true
-            },
-            {
-                "answer": "had wait",
-                "correct": false
-            },
-            {
-                "answer": "should wait",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "I __________ a newspaper last night when my friend rang.",
+        "question": "I ______ a newspaper last night when my friend rang.",
         "id": 21,
         "answers": [
             {
@@ -238,7 +22,7 @@
         ]
     },
     {
-        "question": "There was a robbery at the bank and all the money __________.",
+        "question": "There was a robbery at the bank and all the money ______.",
         "id": 22,
         "answers": [
             {
@@ -260,7 +44,7 @@
         ]
     },
     {
-        "question": "I __________ to the USA on business.",
+        "question": "I ______ to the USA on business.",
         "id": 23,
         "answers": [
             {
@@ -282,7 +66,7 @@
         ]
     },
     {
-        "question": "Unless __________ hard, he'll fail the exam.",
+        "question": "Unless ______ hard, he'll fail the exam.",
         "id": 24,
         "answers": [
             {
@@ -304,7 +88,7 @@
         ]
     },
     {
-        "question": "If I were you, __________ skipping classes.",
+        "question": "If I were you, ______ skipping classes.",
         "id": 25,
         "answers": [
             {
@@ -326,7 +110,7 @@
         ]
     },
     {
-        "question": "26.He liked the party, __________ ?",
+        "question": "26.He liked the party, ______ ?",
         "id": 26,
         "answers": [
             {
@@ -348,7 +132,7 @@
         ]
     },
     {
-        "question": "I tried hard __________ my visa done in time.",
+        "question": "I tried hard ______ my visa done in time.",
         "id": 27,
         "answers": [
             {
@@ -370,7 +154,7 @@
         ]
     },
     {
-        "question": "When I came to my friend's, Helen __________.",
+        "question": "When I came to my friend's, Helen ______.",
         "id": 28,
         "answers": [
             {
@@ -392,7 +176,7 @@
         ]
     },
     {
-        "question": "After __________ his report he was back to work.",
+        "question": "After ______ his report he was back to work.",
         "id": 29,
         "answers": [
             {
@@ -414,7 +198,7 @@
         ]
     },
     {
-        "question": "I __________ go away next week.",
+        "question": "I ______ go away next week.",
         "id": 30,
         "answers": [
             {

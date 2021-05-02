@@ -23,21 +23,30 @@
             </div>
             <button type="button" id="btn_block_2">Next</button>
         </section>
+        <section class="block_3 form__block">
+            <h3>Step 3</h3>
+            <div class="test__form__section_3">
+            </div>
+            <button type="button" id="btn_block_3">Next</button>
+        </section>
 
 
     </form>
     <script>
-        var dataUrl = 'data.json';
+
         const testQuestion = document.querySelector('.test__form__question');
         const testSecondSection = document.querySelector('.test__form__section_2');
+        const testThirdSection = document.querySelector('.test__form__section_3')
         const nextBtn = document.querySelector('#btn_block_1');
-        console.log('nextBtn', nextBtn);
-
+        const nextBtn_2 = document.querySelector('#btn_block_2');
+        getData('data.json')
         //добавление сектион с вопросами
-        nextBtn.addEventListener('click', createSection);
-        function createSection(e) {
-            console.log('e', e.target);
-            getData('data_1.json')
+        //использовала bind? чтоб передать аргумент  'data_1.json' в функцию обработчик 
+        nextBtn.addEventListener('click', createSection.bind(this, 'data_1.json'));
+        nextBtn_2.addEventListener('click', createSection.bind(this, 'data_2.json'))
+
+        function createSection(url) {
+            getData(url)
         }
 
 
@@ -53,7 +62,7 @@
             renderTestCases(result);
         }
 
-        getData(dataUrl)
+
 
 
         async function renderTestCases(list) {
@@ -70,20 +79,16 @@
                     <span class="title-question">${item.id}. ${newSomeText}</span>
                                 </div>`
                 container.innerHTML = question;
-
-                //section 2
-                console.log('item.id', item.id)
+                //я хочу, чтоб каждые 10 вопросов записывались в новый section
                 if (item.id <= 10) {
-                    console.log('testQuestion-->', testQuestion.childNodes.length)
                     testQuestion.appendChild(container);
-                } else if (item.id > 10) {
-                    console.log('10');
+                } else if (item.id <= 20) {
+                    console.log('2222->', item.id);
                     testSecondSection.appendChild(container);
+                } else if (item.id > 20) {
+                    console.log('333->', item.id);
+                    testThirdSection.appendChild(container);
                 }
-
-
-                //testQuestion.appendChild(container);
-
 
                 for (index in item.answers) {
                     let questionItem = `<div class="answer" >
@@ -94,17 +99,24 @@
                           </div>`
                     container.innerHTML += questionItem;
                 }
+                //
                 let inputValue = document.querySelectorAll('input[name^="question_"]');
-                for (let value of inputValue) {
-                    value.addEventListener('click', pasteAnswer);
-                }
+                console.log('inputValue', inputValue);
+                //вешаем обработчик событий на инпут с ответом пользователя
+                getInputsEvent(inputValue);
             })
 
         }
 
+        function getInputsEvent(array) {
+            for (let value of array) {
+                value.addEventListener('click', pasteAnswer);
+            }
+        }
+
 
         //при выборе ответа пользователя вставляет значение в прeдложение
-        //мне не очень нравиться, что у меня при изменении ответа предложения строка "дергается"
+
         function pasteAnswer(e) {
             //получаю ответ пользователя
             let userAnswer = e.target.parentNode.innerText;
