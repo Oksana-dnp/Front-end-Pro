@@ -14,9 +14,14 @@
         <section class="block_1 form__block">
             <h3>Step 1</h3>
             <div class="test__form__question">
-
             </div>
-            <button>Next</button>
+            <button type="button" id="btn_block_1">Next</button>
+        </section>
+        <section class="block_2 form__block">
+            <h3>Step 2</h3>
+            <div class="test__form__section_2">
+            </div>
+            <button type="button" id="btn_block_2">Next</button>
         </section>
 
 
@@ -24,6 +29,16 @@
     <script>
         var dataUrl = 'data.json';
         const testQuestion = document.querySelector('.test__form__question');
+        const testSecondSection = document.querySelector('.test__form__section_2');
+        const nextBtn = document.querySelector('#btn_block_1');
+        console.log('nextBtn', nextBtn);
+
+        //добавление сектион с вопросами
+        nextBtn.addEventListener('click', createSection);
+        function createSection(e) {
+            console.log('e', e.target);
+            getData('data_1.json')
+        }
 
 
         async function getData(url) {
@@ -40,6 +55,7 @@
 
         getData(dataUrl)
 
+
         async function renderTestCases(list) {
 
             list.forEach((item) => {
@@ -48,18 +64,25 @@
                 let newSomeText = item.question.replace('______', () => {
                     return `<span class="userAns"></span>`
                 });
-                span.innerHTML = newSomeText;
-                console.log('span', span)
 
-
-
-                ///
                 let container = document.createElement('div')
                 let question = `<div class="title" data-title="${item.question}">
                     <span class="title-question">${item.id}. ${newSomeText}</span>
                                 </div>`
                 container.innerHTML = question;
-                testQuestion.appendChild(container);
+
+                //section 2
+                console.log('item.id', item.id)
+                if (item.id <= 10) {
+                    console.log('testQuestion-->', testQuestion.childNodes.length)
+                    testQuestion.appendChild(container);
+                } else if (item.id > 10) {
+                    console.log('10');
+                    testSecondSection.appendChild(container);
+                }
+
+
+                //testQuestion.appendChild(container);
 
 
                 for (index in item.answers) {
@@ -69,16 +92,10 @@
                                 ${item.answers[index].answer}                         
                           </label>
                           </div>`
-                    console.log(' container', container)
                     container.innerHTML += questionItem;
-                    // testQuestion.innerHTML += questionItem
-
                 }
                 let inputValue = document.querySelectorAll('input[name^="question_"]');
-                console.log('inputValue', inputValue)
-
                 for (let value of inputValue) {
-                    //console.log('list-->', list)
                     value.addEventListener('click', pasteAnswer);
                 }
             })
