@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Lorem ipsum dolor</div>
+
+    <div>sit amet, consectetur adipisicing</div>
+
+    <div>debitis ve</div>
+
+    <button>Обрезать</button>
+
+    <script>
+        const block = document.querySelectorAll('div');
+        const btnTrim = document.querySelector('button');
+
+
+
+        btnTrim.addEventListener('click', trimString);
+
+        function trimString() {
+            for (let value of block) {
+                value.innerHTML = value.innerHTML.padEnd(10, '.').slice(0, 10);
+                console.log(value.innerHTML.length)
+
+            }
+        }
+
+        var color;
+
+
+
+        const bg = document.querySelector('div');
+        const colours = ['red', 'green', 'blue'];
+
+        changeColours(colours);
+
+        /* function changeColours(colours) {
+             if (colours.length) {
+                 setColour(colours[0]);
+                 setTimeout(function () {
+                     changeColours(colours.slice(1));
+                 }, 1000);
+             }
+         }*/
+
+        function changeColours(colours) {
+            for (i = 0; i < colours.length; i++) {
+                setColour(colours[i]);
+            }
+        }
+
+
+
+        function setColour(colour) {
+            bg.style.background = colour;
+        }
+
+        /* function getColor() {
+             for (let index = 0; index < colours.length; index++) {
+                 var color = colours[index];
+                 bg.style.backgroundColor = color;
+             }
+         }*/
+
+
+
+
+
+        //divColor.style.backgroundColor = color;
+
+
+      //  getColor(colors, changeColor)
+       // Дан абзац.Дан массив цветов['red', 'green', 'blue'].
+       //Сделайте так, чтобы каждую секунду абзац менял свой цвет 
+       //на определенное значение их массива: сначала 'red', потом 'green' и 
+       //так далее.Как только цвета в массиве закончатся - все начнется сначала.Количество цветов в массиве может быть любым.
+
+    </script>
+
+</body>
+
+</html>
