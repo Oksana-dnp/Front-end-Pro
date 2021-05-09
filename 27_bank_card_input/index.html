@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="cart">
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <form action="#">
+            <input class="cart_numb_item" type="text" maxlength="1" autofocus pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+            <p><input type="submit" value="Продолжить"></p>
+
+        </form>
+
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+    </div>
+
+    <script>
+
+        let cardsNumbers = document.querySelectorAll('input');
+
+        for (value of cardsNumbers) {
+            value.addEventListener('keyup', enterNumber);
+        }
+
+        function enterNumber(e) {
+            console.log('e');
+            const key = event.key;
+            (key === "Backspace" || key === "Delete") ? this.previousElementSibling.focus() : this.nextElementSibling.focus();
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

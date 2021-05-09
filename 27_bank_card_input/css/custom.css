@@ -1,0 +1,38 @@
+  
+    .cart {
+    
+    margin: 40px;
+    
+    border: 1px solid #ccc;
+    
+    border-radius: 15px;
+    
+    padding: 30px;
+    
+    background: lightcyan;
+    
+    max-width: 400px;
+    
+    background: url(https://i.pinimg.com/originals/8e/3a/f6/8e3af65af9f79b782ae7d72be5e6371b.png);
+    
+    background-size: cover;
+    
+    background-repeat: no-repeat;
+    
+    }
+    
+    .cart_numb_item {
+    
+    width: 22px;
+    
+    height: 28px;
+    
+    border-radius: 4px;
+    
+    border: 1px solid #ccc;
+    
+    font-size: 20px;
+    
+    text-align: center;
+    
+    }
