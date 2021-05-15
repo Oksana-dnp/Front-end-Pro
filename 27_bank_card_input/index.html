@@ -68,8 +68,17 @@
     </div>
 
     <script>
+        const inputs = document.querySelectorAll(".cart_numb_item");
+        let cookieCardArray = [];
+        let cardNumber = '';
 
         let cardsNumbers = document.querySelectorAll('input');
+
+        console.log('inputs', inputs);
+
+        for (value of inputs) {
+            value.addEventListener('input', setCookie)
+        }
 
         for (value of cardsNumbers) {
             value.addEventListener('keyup', enterNumber);
@@ -80,6 +89,21 @@
             const key = event.key;
             (key === "Backspace" || key === "Delete") ? this.previousElementSibling.focus() : this.nextElementSibling.focus();
         }
+
+        function getCookie() {
+            if (!document.cookie) {
+                document.cookie = "cart=15615816816"
+            }
+        }
+
+        getCookie();
+
+        function setCookie(e) {
+            cardNumber += e.target.value;
+            document.cookie = `cart=${cardNumber}`;
+        }
+
+        document.cookie = "cart=15615816816"
     </script>
 
 
