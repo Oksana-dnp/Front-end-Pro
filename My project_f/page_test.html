@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English level test</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="time__counter">
+        <span class="time__counter__item">10:00</span>
+    </div>
+    <div class="wellcome__pop__up">
+        <h1>Test your English</h1>
+        <form action="#">
+            <input class="wellcome__pop__up__item" type="text" placeholder="введите ваше имя" data-name="userName"
+                autofocus required>
+            <input class="wellcome__pop__up__item" type="email" placeholder="введите Ваш e-mail" data-name="userEmail"
+                required>
+            <input class="startBtn" type="submit" value="Let's go">
+        </form>
+    </div>
+    <div class="time__over hide">
+        <p>К сожалению, время для проходжения теста закончилось!</p>
+        <input type="button" value="try else">
+    </div>
+    <div class="results__inner hide">
+        <p class="results"></p>
+    </div>
+    <form class="test__form" action="post">
+        <section class="block_1 form__block active">
+            <h3>Step 1</h3>
+            <div class="test__form__section_1 cases_wrapper">
+            </div>
+            <button type="button" id="btn_block_1" data-page='2'>Next</button>
+        </section>
+        <section class="block_2 form__block ">
+            <h3>Step 2</h3>
+            <div class="test__form__section_2 cases_wrapper">
+            </div>
+            <button type="button" id="btn_block_2" data-page='3'>Next</button>
+        </section>
+        <section class="block_3 form__block">
+            <h3>Step 3</h3>
+            <div class="test__form__section_3 cases_wrapper">
+            </div>
+            <button id="result" type="button" id="btn_block_3" data-page='4'>Get result</button>
+        </section>
+    </form>
+    <script src="./js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+@import 'global';
+@import 'reset';
+
+.header {
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 120px;
+    }
+}
+
+.logo{
+    margin: 0 auto;
+}
+
+.menu{
+    padding-left: 35px;
+    padding-right: 60px;
+    &__list{
+        display: flex;
+    }
+    &__list-item+.menu__list-item{
+    padding-left: 80px
+    }
+}
+
+.test__form {
+    .cases_wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 900px;
+    }
+    
+}
+
+.userAns {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(169, 247, 159);
+    border: 2px solid black;
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.hide{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;  
+    background-color: aquamarine;
+}
+
+.form__block {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.wellcome__pop__up {
+    background-color: aquamarine;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    &__item{
+        display: block;
+        margin-bottom: 20px;
+    }
+}
