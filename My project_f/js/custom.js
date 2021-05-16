@@ -115,17 +115,13 @@ function getResults(e) {
         console.log('usersAnswer-->', answersResult);
     }
 }
-//хочу получить массив с верными ответами
-//но функционала пока нет
-function getRightAnswers() {
-    let rightAnswers = [];
-}
-
 
 getData('data.json')
 //добавление сектион с вопросами
 //использовала bind? чтоб передать аргумент  'data_1/2.json' в функцию обработчик 
 nextBtn.addEventListener('click', createSection.bind(this, 'data_1.json'));
+
+nextBtn.removeEventListener('click', createSection.bind(this, 'data_1.json'));
 nextBtn.addEventListener('click', goNextPage);
 nextBtn_2.addEventListener('click', createSection.bind(this, 'data_2.json'));
 nextBtn_2.addEventListener('click', goNextPage);
@@ -136,10 +132,19 @@ function createSection(url) {
 
 function goNextPage(e) {
     let index = e.target.dataset.page;
-    let currentSection = document.querySelector('section[class*="active"]');
-    let newSection = document.querySelector(`section[class*="block_${index}"]`);
-    currentSection.classList.remove("active");
-    newSection.classList.add("active");
+    let answersObj = JSON.parse(localStorage.getItem('answers'));
+    if (answersObj.length == 10 || answersObj == 20 || answersObj == 30) {
+
+
+
+        let currentSection = document.querySelector('section[class*="active"]');
+        let newSection = document.querySelector(`section[class*="block_${index}"]`);
+        currentSection.classList.remove("active");
+        newSection.classList.add("active");
+    } else {
+
+        alert('Вы ответили не на все вопросы');
+    }
 }
 
 
