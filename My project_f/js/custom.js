@@ -305,7 +305,7 @@ function showUsersResults() {
     let p = document.createElement('p');
     p.classList.add('users-results');
     for (item of results) {
-        p = `<span>Имя пользователя: ${item.userName}</span><span>${item.answers} правильных ответов из 30</span>`;
+        p = `<span>Имя пользователя: ${item.userName}</span><span>${item.answers}</span><span> правильных ответов из 30</span>`;
         container.innerHTML += p;
     }
 

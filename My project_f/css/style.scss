@@ -1,30 +1,10 @@
 @import 'global';
 @import 'reset';
 
-.header {
-    &__inner{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 120px;
-    }
+.title-question {
+    display: flex;
+    align-items: center;
 }
-
-.logo{
-    margin: 0 auto;
-}
-
-.menu{
-    padding-left: 35px;
-    padding-right: 60px;
-    &__list{
-        display: flex;
-    }
-    &__list-item+.menu__list-item{
-    padding-left: 80px
-    }
-}
-
 .test__form {
     .cases_wrapper {
     display: grid;
@@ -35,14 +15,18 @@
 }
 
 .userAns {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 0 5px;
     width: 120px;
     height: 40px;
-    background-color: rgb(169, 247, 159);
-    border: 2px solid black;
-    color: red;
-    font-size: 20px;
-    font-weight: 600;
+    background-color: #a4f1cc;
+    border: 1px solid grey;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
 }
 
 
@@ -54,6 +38,11 @@
     top: 0;  
     background-color: aquamarine;
 }
+
+.results__title {
+    display: none;
+}
+
 
 .form__block {
     display: none;
@@ -73,4 +62,48 @@
         display: block;
         margin-bottom: 20px;
     }
+}
+
+ .time__counter {
+   display: flex;
+    text-align: center;
+    
+  }
+.time__counter__item{
+position: relative;
+width: 30px;
+    height: 32px;
+    backcround-color: grey;
+    heigth: 500px;
+    border: 1px solid grey;
+    border-radius: 10px;
+
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+background-color: #00bcd4;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+margin: 3px;
+}
+.time__counter__item+.time__counter__item:before {
+    content: ':';
+    position: absolute;
+    left: -8px;
+    color: #000;
+}
+
+.users-results {
+    display: grid;
+    grid-column: 2;
+}
+
+.results__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 400px;
 }
