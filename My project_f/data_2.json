@@ -1,0 +1,222 @@
+[
+    {
+        "question": "I ______ a newspaper last night when my friend rang.",
+        "id": 21,
+        "answers": [
+            {
+                "answer": "have been reading",
+                "correct": false
+            },
+            {
+                "answer": "read",
+                "correct": true
+            },
+            {
+                "answer": "have read",
+                "correct": false
+            },
+            {
+                "answer": "was reading",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "There was a robbery at the bank and all the money ______.",
+        "id": 22,
+        "answers": [
+            {
+                "answer": "was stealing",
+                "correct": false
+            },
+            {
+                "answer": "stolen",
+                "correct": true
+            },
+            {
+                "answer": "was stolen",
+                "correct": false
+            },
+            {
+                "answer": "was being stolen",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I ______ to the USA on business.",
+        "id": 23,
+        "answers": [
+            {
+                "answer": "am being sent",
+                "correct": false
+            },
+            {
+                "answer": "am sent",
+                "correct": true
+            },
+            {
+                "answer": "am send",
+                "correct": false
+            },
+            {
+                "answer": "be send",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Unless ______ hard, he'll fail the exam.",
+        "id": 24,
+        "answers": [
+            {
+                "answer": "he'll work",
+                "correct": false
+            },
+            {
+                "answer": "he works",
+                "correct": true
+            },
+            {
+                "answer": " he worked",
+                "correct": false
+            },
+            {
+                "answer": "he'd work",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "If I were you, ______ skipping classes.",
+        "id": 25,
+        "answers": [
+            {
+                "answer": "I stopped",
+                "correct": false
+            },
+            {
+                "answer": "I'll stop",
+                "correct": true
+            },
+            {
+                "answer": "I stop",
+                "correct": false
+            },
+            {
+                "answer": "I'd stop",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "26.He liked the party, ______ ?",
+        "id": 26,
+        "answers": [
+            {
+                "answer": "isn't he",
+                "correct": false
+            },
+            {
+                "answer": "didn't he",
+                "correct": true
+            },
+            {
+                "answer": "hasn't he",
+                "correct": false
+            },
+            {
+                "answer": "doesn't he",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I tried hard ______ my visa done in time.",
+        "id": 27,
+        "answers": [
+            {
+                "answer": "to get",
+                "correct": false
+            },
+            {
+                "answer": "for getting",
+                "correct": true
+            },
+            {
+                "answer": "for",
+                "correct": false
+            },
+            {
+                "answer": "to getting",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "When I came to my friend's, Helen ______.",
+        "id": 28,
+        "answers": [
+            {
+                "answer": "had already left",
+                "correct": false
+            },
+            {
+                "answer": "already left",
+                "correct": true
+            },
+            {
+                "answer": "was already left",
+                "correct": false
+            },
+            {
+                "answer": "would already leave",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "After ______ his report he was back to work.",
+        "id": 29,
+        "answers": [
+            {
+                "answer": "write",
+                "correct": false
+            },
+            {
+                "answer": "to write",
+                "correct": true
+            },
+            {
+                "answer": "wrote",
+                "correct": false
+            },
+            {
+                "answer": "writting",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I ______ go away next week.",
+        "id": 30,
+        "answers": [
+            {
+                "answer": "would like",
+                "correct": false
+            },
+            {
+                "answer": "like",
+                "correct": true
+            },
+            {
+                "answer": "like to",
+                "correct": false
+            },
+            {
+                "answer": "would like to",
+                "correct": false
+            }
+        ]
+    }
+]

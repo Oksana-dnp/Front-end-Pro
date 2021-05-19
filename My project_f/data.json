@@ -1,0 +1,218 @@
+[
+    {
+        "question": "I ______ a teacher.",
+        "id": 1,
+        "answers": [
+            {
+                "answer": "am",
+                "correct": true
+            },
+            {
+                "answer": "are",
+                "correct": false
+            },
+            {
+                "answer": "be",
+                "correct": false
+            },
+            {
+                "answer": "is",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "______ two sons.",
+        "id": 2,
+        "answers": [
+            {
+                "answer": "She have",
+                "correct": false
+            },
+            {
+                "answer": "She is",
+                "correct": false
+            },
+            {
+                "answer": "She get",
+                "correct": false
+            },
+            {
+                "answer": "She has got",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "question": "He ______ like basketball.",
+        "id": 3,
+        "answers": [
+            {
+                "answer": "doesn't",
+                "correct": true
+            },
+            {
+                "answer": "not",
+                "correct": false
+            },
+            {
+                "answer": "don't",
+                "correct": false
+            },
+            {
+                "answer": "do not",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "I'm reading. What ______ doing?",
+        "id": 4,
+        "answers": [
+            {
+                "answer": "you",
+                "correct": false
+            },
+            {
+                "answer": "are you",
+                "correct": true
+            },
+            {
+                "answer": "are",
+                "correct": false
+            },
+            {
+                "answer": "you are",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "______ he go for a walk every evening?",
+        "id": 5,
+        "answers": [
+            {
+                "answer": "Does",
+                "correct": true
+            },
+            {
+                "answer": "Has",
+                "correct": false
+            },
+            {
+                "answer": "Is",
+                "correct": false
+            },
+            {
+                "answer": "Do",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "______ some apples in the plastic bag.",
+        "id": 6,
+        "answers": [
+            {
+                "answer": "It is",
+                "correct": false
+            },
+            {
+                "answer": "There is",
+                "correct": false
+            },
+            {
+                "answer": "There are",
+                "correct": true
+            },
+            {
+                "answer": "There isn't",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "There isn't ______ fruit in the shop",
+        "id": 7,
+        "answers": [
+            {
+                "answer": "some",
+                "correct": false
+            },
+            {
+                "answer": "any",
+                "correct": true
+            },
+            {
+                "answer": "the",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "______ you play chess?",
+        "id": 8,
+        "answers": [
+            {
+                "answer": "Are",
+                "correct": false
+            },
+            {
+                "answer": "Can",
+                "correct": true
+            },
+            {
+                "answer": "Know",
+                "correct": false
+            },
+            {
+                "answer": "Have",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "What are you doing now? I ______ a letter.",
+        "id": 9,
+        "answers": [
+            {
+                "answer": "is writing",
+                "correct": false
+            },
+            {
+                "answer": "write",
+                "correct": false
+            },
+            {
+                "answer": "be writing",
+                "correct": false
+            },
+            {
+                "answer": "am writing",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "question": "Do you like ______ there?",
+        "id": 10,
+        "answers": [
+            {
+                "answer": "to working",
+                "correct": false
+            },
+            {
+                "answer": "working",
+                "correct": true
+            },
+            {
+                "answer": "worked",
+                "correct": false
+            },
+            {
+                "answer": "work",
+                "correct": false
+            }
+        ]
+    }
+]

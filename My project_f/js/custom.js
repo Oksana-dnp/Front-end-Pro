@@ -6,17 +6,29 @@ const inputUserEmail = document.querySelector('input[data-name="userEmail"]');
 
 const popUpTimeOver = document.querySelector('.hide');
 const btnTryAgain = document.querySelector('.time__over input');
-
-
-
 const startBtn = document.querySelector('.startBtn');
 const nextBtn = document.querySelector('#btn_block_1');
 const nextBtn_2 = document.querySelector('#btn_block_2');
 const btnGetResults = document.querySelector('#result');
 
-console.log('results ', btnGetResults)
+
+//сохраняем данные пользователя
+function setUserData(e) {
+    if (e.target.value.length > 0)
+        setItem(`${e.target.dataset.name}`, e.target.value);
+}
+
+//закидывает данные в локалсторедж
+
+function setItem(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
 
 
+//пользователь вводит данные и начинается тест
+
+inputUserName.addEventListener('blur', setUserData);
+inputUserEmail.addEventListener('blur', setUserData);
 
 //cчетчик времени 20 минут на тест
 
@@ -48,7 +60,6 @@ async function startCounter() {
                     value.checked = false;
                 }
                 timer.textContent = `10:00`
-                console.log('counter', startCounter)
                 btnTryAgain.parentNode.classList.remove('active');
 
                 startCounter()
@@ -60,46 +71,14 @@ async function startCounter() {
 }
 
 
-
-/*function timeFormat(param, count) {
-
-    switch (param) {
-        case param > 10:
-            count = `${param}`;
-            break;
-        case 0 <= param < 10:
-            count = `0${param}`;
-            break
-    }
-    return count
-}*/
-
-
-
-//пользователь вводит данные и начинается тест
-
-inputUserName.addEventListener('blur', setUserData);
-inputUserEmail.addEventListener('blur', setUserData);
-
-
-//если пользователь раньше вводил свои данные, они автоматически подтяшиваються
-
-
-//if (inputUserName.value.length === 0) inputUserName.value = localStorage.getItem('userName');
-//if (inputUserEmail.value.length === 0) inputUserEmail.value = localStorage.getItem('userEmail');
-
-function setUserData(e) {
-    if (e.target.value.length > 0)
-        localStorage.setItem(`${e.target.dataset.name}`, e.target.value);
-}
-
 startBtn.addEventListener('click', userRegistration);
 function userRegistration(e) {
     let regMail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    let regName = /^(?=.{1,15}$)[a-zA-Z]*$/
     //валидация полей
     //сделать валидацию для имени!!!!!
-    if (inputUserName.value.length === 0 || regMail.test(inputUserEmail.value) == false) {
-        alert('Проверте корректность ввода e-mail')
+    if (regName.test(inputUserName.value) == false || regMail.test(inputUserEmail.value) == false) {
+        alert('Проверте корректность ввода Ваших данных')
     } else {
         startCounter();
         e.target.parentNode.parentNode.classList.add('form__block');
@@ -118,34 +97,36 @@ function getResults(e) {
 
 getData('data.json')
 //добавление сектион с вопросами
-//использовала bind? чтоб передать аргумент  'data_1/2.json' в функцию обработчик 
-nextBtn.addEventListener('click', createSection.bind(this, 'data_1.json'));
+//bind не прокатило удаление обработчика событий 
 
-nextBtn.removeEventListener('click', createSection.bind(this, 'data_1.json'));
+nextBtn.addEventListener('click', createSection.call(nextBtn, 'data_1.json'));
 nextBtn.addEventListener('click', goNextPage);
-nextBtn_2.addEventListener('click', createSection.bind(this, 'data_2.json'));
+nextBtn_2.addEventListener('click', createSection.call(nextBtn_2, 'data_2.json'));
 nextBtn_2.addEventListener('click', goNextPage);
 
 function createSection(url) {
+    console.log(this)
+    this.removeEventListener('click', createSection);
     getData(url)
 }
 
 function goNextPage(e) {
     let index = e.target.dataset.page;
     let answersObj = JSON.parse(localStorage.getItem('answers'));
-    if (answersObj.length == 10 || answersObj == 20 || answersObj == 30) {
-
-
-
+    if (answersObj.length == 10 || answersObj.length == 20 || answersObj.length == 30) {
         let currentSection = document.querySelector('section[class*="active"]');
         let newSection = document.querySelector(`section[class*="block_${index}"]`);
         currentSection.classList.remove("active");
         newSection.classList.add("active");
     } else {
-
         alert('Вы ответили не на все вопросы');
     }
 }
+
+function showPopUp(a, b = a) {
+
+}
+
 
 
 async function getData(url) {
@@ -243,8 +224,26 @@ function saveUserAnswers(elem) {
         answers.push(item)
     }
     //сохраняем ответы пользователя
-    localStorage.setItem("answers", JSON.stringify(answers))
-    //let setAnswers = JSON.parse(localStorage.getItem("item"));
+    setItem("answers", answers)
+}
+
+function resultsStorage() {
+    let usersStorage = [];
+    let keys = Object.keys(localStorage);
+
+    for (let key of keys) {
+        let item = {}
+        //задвоились кавычки
+        item[key] = localStorage.getItem(key);
+        usersStorage.push(item);
+    }
+    console.log('usersStorage', usersStorage)
+    let i = 0;
+    i = () => ++i;
+
+    setItem(`user+${i}`, usersStorage)
+    return usersStorage;
+
 }
 
 //считаем правильные ответы
@@ -265,9 +264,10 @@ function userGetResult(e) {
     let resultInfo = document.querySelector('.results');
     let resaltsInner = document.querySelector('.results__inner');
     let answers = JSON.parse(localStorage.getItem('answers'));
-    countAns(answers)
+
     let result = countAns(answers);
     resaltsInner.classList.add('active');
     resultInfo.innerText = `${result}`;
-    console.log('result', result);
+    localStorage.setItem('answers', result);
+    resultsStorage()
 }
