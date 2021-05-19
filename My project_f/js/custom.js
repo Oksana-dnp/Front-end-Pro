@@ -34,39 +34,36 @@ inputUserEmail.addEventListener('blur', setUserData);
 
 async function startCounter() {
     let testTime = new Date();
-    testTime.setMinutes(testTime.getMinutes() + 10);
-    console.log('testTime-->', testTime);
+    testTime.setSeconds(testTime.getSeconds() + 121);
     function count() {
         let currentData = new Date();
         let counter = testTime - currentData;
         let minutesCounter = Math.floor(counter / 1000 / 60);
         let secondsCounter = Math.floor((counter - minutesCounter * 1000 * 60) / 1000);
-        let timer = document.querySelector('.time__counter__item');
-        //чтото не совсем то...
+        let timer = document.querySelectorAll('.time__counter__item');
 
-        if (minutesCounter >= 0 && secondsCounter > 0) {
-            minutesCounter < 10 ? timer.textContent = `0${minutesCounter}:${secondsCounter}` : timer.textContent = `${minutesCounter}:${secondsCounter}`
-            secondsCounter < 10 ? timer.textContent = `${minutesCounter}:0${secondsCounter}` : timer.textContent = `${minutesCounter}:${secondsCounter}`
-        } else if (minutesCounter > 0 && secondsCounter == 0) {
-            minutesCounter < 10 ? timer.textContent = `0${minutesCounter}:${secondsCounter}` : timer.textContent = `${minutesCounter}:${secondsCounter}`
-            secondsCounter < 10 ? timer.textContent = `${minutesCounter}:0${secondsCounter}` : timer.textContent = `${minutesCounter}:${secondsCounter}`
-        } else {
-            timer.textContent = `0${minutesCounter}:0${secondsCounter}`
+        timer[0].textContent = (minutesCounter < 10) ? `0${minutesCounter}` : minutesCounter;
+        timer[1].textContent = (secondsCounter < 10) ? `0${secondsCounter}` : secondsCounter;
+
+
+        if (minutesCounter === 0 && secondsCounter === 0) {
             popUpTimeOver.classList.add('active');
             clearInterval(timerId);
+
             btnTryAgain.addEventListener('click', () => {
                 let inputsCases = document.querySelectorAll('input[name^="question_"]');
-                for (value of inputsCases) {
+                for (let value of inputsCases) {
                     value.checked = false;
                 }
                 timer.textContent = `10:00`
+                console.log('counter', startCounter)
                 btnTryAgain.parentNode.classList.remove('active');
 
                 startCounter()
             });
-
-        };
+        }
     }
+
     let timerId = setInterval(count, 1000);
 }
 
@@ -105,7 +102,6 @@ nextBtn_2.addEventListener('click', createSection.call(nextBtn_2, 'data_2.json')
 nextBtn_2.addEventListener('click', goNextPage);
 
 function createSection(url) {
-    console.log(this)
     this.removeEventListener('click', createSection);
     getData(url)
 }
@@ -207,6 +203,8 @@ function pasteAnswer(e) {
 var answers = [];
 
 //сложность пользователь менял свои ответы, нужно было исключить повторения т.е. заменять, если ответ на этот вопрос уже сохранялся
+
+
 function saveUserAnswers(elem) {
     //ответ на вопрос
     let item = {
@@ -227,6 +225,7 @@ function saveUserAnswers(elem) {
     setItem("answers", answers)
 }
 
+/*
 function resultsStorage() {
     let usersStorage = [];
     let keys = Object.keys(localStorage);
@@ -244,7 +243,9 @@ function resultsStorage() {
     setItem(`user+${i}`, usersStorage)
     return usersStorage;
 
-}
+}*/
+
+
 
 //считаем правильные ответы
 function countAns(array) {
@@ -269,5 +270,44 @@ function userGetResult(e) {
     resaltsInner.classList.add('active');
     resultInfo.innerText = `${result}`;
     localStorage.setItem('answers', result);
-    resultsStorage()
+    setUserResult()
+    // resultsStorage()
 }
+
+var usersInfo = [];
+function setUserResult() {
+    let user = localStorage.getItem('userInfo');
+    if (user) {
+        usersInfo = JSON.parse(localStorage.getItem('userInfo'));
+        let item = {};
+        item.userName = JSON.parse(localStorage.getItem('userName'));
+        item.answers = JSON.parse(localStorage.getItem('answers'));
+        usersInfo.push(item);
+        localStorage.setItem(`userInfo`, JSON.stringify(usersInfo))
+    } else {
+        let item = {};
+        item.userName = JSON.parse(localStorage.getItem('userName'));
+        item.answers = JSON.parse(localStorage.getItem('answers'));
+        usersInfo.push(item)
+        localStorage.setItem(`userInfo`, JSON.stringify(usersInfo))
+    }
+
+    return usersInfo
+}
+
+function showUsersResults() {
+    document.querySelector('.results__title').classList.add('active');
+    let results = JSON.parse(localStorage.getItem('userInfo'));
+    console.log('results', results);
+
+
+    let container = document.querySelector('.results__info');
+    let p = document.createElement('p');
+    p.classList.add('users-results');
+    for (item of results) {
+        p = `<span>Имя пользователя: ${item.userName}</span><span>${item.answers} правильных ответов из 30</span>`;
+        container.innerHTML += p;
+    }
+
+}
+showUsersResults()
