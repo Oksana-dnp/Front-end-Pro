@@ -191,6 +191,7 @@ function pasteAnswer(e) {
     //получаю ответ пользователя
     console.log('this', this.dataset.answer)
     let userAnswer = e.target.parentNode.innerText;
+    console.log('userAnser', userAnswer)
     //через общего родителя получаю фразу, куда необходимо вставить ответ пользователя
     let parrent = e.target.parentNode.parentNode.parentNode;
     let titleReplace = parrent.querySelector('.userAns');
@@ -300,12 +301,16 @@ function showUsersResults() {
     let results = JSON.parse(localStorage.getItem('userInfo'));
     console.log('results', results);
 
+    console.log('results', results);
 
+    results.sort((a, b) => a.answers > b.answers ? -1 : 1);
+
+    console.log('results', results);
     let container = document.querySelector('.results__info');
     let p = document.createElement('p');
     p.classList.add('users-results');
     for (item of results) {
-        p = `<span>Имя пользователя: ${item.userName}</span><span>${item.answers}</span><span> правильных ответов из 30</span>`;
+        p = `<span>${item.userName}</span><span>${item.answers}</span><span> правильных ответов из 30</span>`;
         container.innerHTML += p;
     }
 
