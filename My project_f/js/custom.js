@@ -17,15 +17,30 @@ function setUserData(e) {
     if (e.target.value.length > 0)
         setItem(`${e.target.dataset.name}`, e.target.value);
 }
-
 //закидывает данные в локалсторедж
 
 function setItem(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
+    let dateTest = getDate()
+    localStorage.setItem('userData', JSON.stringify(dateTest));
 }
 
+function getDate() {
+    let date = new (Date)
+    let day = date.getDate();
 
-//пользователь вводит данные и начинается тест
+    let month = date.getMonth() + 1;
+
+    let year = date.getFullYear();
+
+    day < 10 ? day = `0${day}` : day;
+
+    month < 10 ? month = `0${month}` : month;
+
+    let userData = `${day}.${month}.${year}`;
+    return userData;
+}
+
 
 inputUserName.addEventListener('blur', setUserData);
 inputUserEmail.addEventListener('blur', setUserData);
@@ -34,7 +49,7 @@ inputUserEmail.addEventListener('blur', setUserData);
 
 async function startCounter() {
     let testTime = new Date();
-    testTime.setSeconds(testTime.getSeconds() + 121);
+    testTime.setSeconds(testTime.getSeconds() + 301);
     function count() {
         let currentData = new Date();
         let counter = testTime - currentData;
@@ -189,9 +204,7 @@ function getInputsEvent(array) {
 
 function pasteAnswer(e) {
     //получаю ответ пользователя
-    console.log('this', this.dataset.answer)
     let userAnswer = e.target.parentNode.innerText;
-    console.log('userAnser', userAnswer)
     //через общего родителя получаю фразу, куда необходимо вставить ответ пользователя
     let parrent = e.target.parentNode.parentNode.parentNode;
     let titleReplace = parrent.querySelector('.userAns');
@@ -199,12 +212,9 @@ function pasteAnswer(e) {
     saveUserAnswers(this);
 }
 
-//save user's answer
 //в начало ко всем переменным?
 var answers = [];
-
 //сложность пользователь менял свои ответы, нужно было исключить повторения т.е. заменять, если ответ на этот вопрос уже сохранялся
-
 
 function saveUserAnswers(elem) {
     //ответ на вопрос
@@ -225,27 +235,6 @@ function saveUserAnswers(elem) {
     //сохраняем ответы пользователя
     setItem("answers", answers)
 }
-
-/*
-function resultsStorage() {
-    let usersStorage = [];
-    let keys = Object.keys(localStorage);
-
-    for (let key of keys) {
-        let item = {}
-        //задвоились кавычки
-        item[key] = localStorage.getItem(key);
-        usersStorage.push(item);
-    }
-    console.log('usersStorage', usersStorage)
-    let i = 0;
-    i = () => ++i;
-
-    setItem(`user+${i}`, usersStorage)
-    return usersStorage;
-
-}*/
-
 
 
 //считаем правильные ответы
@@ -283,36 +272,43 @@ function setUserResult() {
         let item = {};
         item.userName = JSON.parse(localStorage.getItem('userName'));
         item.answers = JSON.parse(localStorage.getItem('answers'));
+        item.userData = localStorage.getItem('userData');
         usersInfo.push(item);
         localStorage.setItem(`userInfo`, JSON.stringify(usersInfo))
     } else {
         let item = {};
         item.userName = JSON.parse(localStorage.getItem('userName'));
         item.answers = JSON.parse(localStorage.getItem('answers'));
+        item.userData = JSON.parse(localStorage.getItem('userData'));
         usersInfo.push(item)
         localStorage.setItem(`userInfo`, JSON.stringify(usersInfo))
     }
-
+    showUsersResults()
     return usersInfo
 }
 
+btnGetResults.addEventListener('click', showUsersResults)
 function showUsersResults() {
     document.querySelector('.results__title').classList.add('active');
     let results = JSON.parse(localStorage.getItem('userInfo'));
-    console.log('results', results);
-
-    console.log('results', results);
 
     results.sort((a, b) => a.answers > b.answers ? -1 : 1);
-
-    console.log('results', results);
-    let container = document.querySelector('.results__info');
-    let p = document.createElement('p');
-    p.classList.add('users-results');
+    //   let container = document.querySelector('.results__info');
+    //let p = document.createElement('p');
+    //p.classList.add('users-results');
+    btnGetResults.removeEventListener('click', showUsersResults)
     for (item of results) {
-        p = `<span>${item.userName}</span><span>${item.answers}</span><span> правильных ответов из 30</span>`;
-        container.innerHTML += p;
+        createElem(item)
     }
 
 }
-showUsersResults()
+//2005
+
+function createElem(item) {
+    let container = document.querySelector('.results__info');
+    for (key in item) {
+        let span_name = `<span class="results__item">${item[key]}</span>`;
+        console.log(item[key])
+        container.innerHTML += span_name;
+    }
+}

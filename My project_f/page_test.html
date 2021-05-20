@@ -15,24 +15,31 @@
         <span class="time__counter__item">00</span>
     </div>
     <div class="wellcome__pop__up">
-        <h1>Test your English</h1>
+        <h1 class="main__title title">Test your English</h1>
         <form action="#">
             <input class="wellcome__pop__up__item" type="text" placeholder="введите ваше имя" data-name="userName"
                 autofocus required>
             <input class="wellcome__pop__up__item" type="email" placeholder="введите Ваш e-mail" data-name="userEmail"
                 required>
-            <input class="startBtn" type="submit" value="Let's go">
+            <input class="startBtn btn_action" type="submit" value="Let's go">
         </form>
+        <div class="img__container">
+            <img class="img" src="./img/ben.png" alt="">
+        </div>
     </div>
     <div class="time__over hide">
         <p>К сожалению, время для проходжения теста закончилось!</p>
-        <input type="button" value="try else">
+        <input class="btn_action" type="button" value="try else">
     </div>
     <div class="results__inner hide">
         <p class="results"></p>
         <div class="results__history">
-            <h3 class="results__title">Результаты</h3>
-            <div class="results__info"></div>
+            <h3 class="results__title title">Результаты</h3>
+            <div class="results__info">
+                <span class="results__item">Имя</span>
+                <span class="results__item">Дата</span>
+                <span class="results__item">Результат</span>
+            </div>
         </div>
     </div>
     <form class="test__form" action="post">
