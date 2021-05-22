@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="cart">
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <form action="#">
+            <input class="cart_numb_item" type="text" maxlength="1" autofocus pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+
+            <input class="cart_numb_item" type="text" maxlength="1" pattern="\d*">
+            <p><input id="btn" type="submit" value="Обновить cookie"></p>
+
+        </form>
+
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <br>
+
+    </div>
+
+    <script>
+
+        let cookieCardArray = [];
+        let cardNumber = '';
+
+        const cardsNumbers = document.querySelectorAll('.cart_numb_item');
+        const btnGetCookie = document.querySelector('#btn');
+
+
+        for (value of cardsNumbers) {
+
+            value.addEventListener('input', setCookie)
+
+            value.addEventListener('keyup', enterNumber);
+
+        }
+
+
+        //load не сработал...
+        document.addEventListener("DOMContentLoaded", setCookieVisit)
+        console.log('cooke', btnGetCookie)
+
+        function setCookieVisit() {
+            // document.removeEventListener("DOMContentLoaded", setCookieVisit);
+            if (!document.cookie) {
+                document.cookie = "name=Kate; max-age=10";
+                document.cookie = "date=21.05.2021; max-age=10";
+                document.cookie = "visited=true"
+                alert('Добро пожаловать!')
+            } else {
+                let cookie = document.cookie.split(';');
+                if (cookie.length == 1 && cookie.indexOf("visited")) {
+                    alert('для обновления cookie нажмите кнопку')
+                }
+            }
+        }
+
+        btnGetCookie.addEventListener('click', refreshCookie)
+
+        function refreshCookie() {
+            console.log('cooke', btnGetCookie)
+            document.cookie = "name=Kate; max-age=10";
+            document.cookie = "date=21.05.2021; max-age=10";
+        }
+
+
+
+
+        function enterNumber(e) {
+            const key = event.key;
+            (key === "Backspace" || key === "Delete") ? this.previousElementSibling.focus() : this.nextElementSibling.focus();
+        }
+
+
+        //getCookie();
+
+        function setCookie(e) {
+            if (cardNumber.length < 13) {
+                console.log('value')
+                cardNumber += e.target.value;
+                document.cookie = `cart=${cardNumber}`;
+            } else {
+                for (i = 0; i < inputs.length; i++) {
+
+                    console.log('i-->', e.target.value);
+                    console.log('card', cardNumber)
+                }
+            }
+        }
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
